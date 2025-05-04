@@ -26,16 +26,37 @@ document.addEventListener("DOMContentLoaded", () => {
     const productsGrid = document.getElementById("products-grid");
     const productItems = productsGrid?.querySelectorAll(".product-item");
 
-    searchForm?.addEventListener("submit", (event) => {
-        event.preventDefault();
-    });
+    // --- Read query from URL and filter products on page load ---
+    function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param) || "";
+    }
 
-    searchInput?.addEventListener("input", () => {
-        const searchValue = searchInput.value.toLowerCase();
-        productItems?.forEach((item) => {
+    if (searchInput && productItems) {
+        const initialQuery = getQueryParam("query");
+        if (initialQuery) {
+            searchInput.value = initialQuery;
+            filterProducts(initialQuery);
+        }
+        searchInput.addEventListener("input", () => {
+            filterProducts(searchInput.value);
+        });
+    }
+
+    function filterProducts(query) {
+        const searchValue = query.toLowerCase();
+        productItems.forEach((item) => {
             const productName = item.getAttribute("data-name")?.toLowerCase() || "";
             item.style.display = productName.includes(searchValue) ? "block" : "none";
         });
+    }
+
+    searchForm?.addEventListener("submit", (event) => {
+        // Only prevent default if we're on products.html, otherwise let the form submit
+        if (window.location.pathname.includes("products.html")) {
+            event.preventDefault();
+            filterProducts(searchInput.value);
+        }
     });
 
     // Slider Logic
