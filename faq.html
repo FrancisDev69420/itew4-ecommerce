@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequently Asked Questions - TechGadgetHub</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-wrapper">
+                <div class="logo">
+                    <a href="index.html">
+                        <h1>TechGadgetHub</h1>
+                    </a>
+                </div>
+                <div class="search-bar">
+                    <form id="search-form" action="products.html">
+                        <input id="product-search" type="text" placeholder="Search for gadgets..." name="query">
+                        <button type="submit"><i class="fas fa-search"></i></button>
+                    </form>
+                </div>
+                <div class="header-actions">
+                    <div class="account">
+                        <a href="account/login.html"><i class="fas fa-user"></i> Account</a>
+                    </div>
+                    <div class="cart">
+                        <a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart (0)</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav class="main-nav">
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#">Categories <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="categories/smartphones.html">Smartphones</a>
+                        <a href="categories/laptops.html">Laptops & Computers</a>
+                        <a href="categories/audio.html">Audio Devices</a>
+                        <a href="categories/smart-home.html">Smart Home</a>
+                        <a href="categories/wearables.html">Wearables</a>
+                        <a href="categories/photography.html">Photography</a>
+                    </div>
+                </li>
+                <li><a href="deals.html">Deals</a></li>
+                <li><a href="new-arrivals.html">New Arrivals</a></li>
+                <li><a href="blog.html">Tech Blog</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="faq-container">
+        <h1>Frequently Asked Questions</h1>
+
+        <div class="faq-notice">
+            <i class="fas fa-info-circle"></i>
+            <strong>Can't find your answer?</strong> Feel free to contact our customer support team for assistance.
+        </div>
+
+        <section class="faq-section">
+            <h2>Ordering & Payment</h2>
+            <div class="faq-card">
+                <div class="faq-item">
+                    <div class="faq-question">How do I place an order?</div>
+                    <div class="faq-answer">
+                        <p>To place an order:</p>
+                        <ul>
+                            <li>Browse our products and add items to your cart</li>
+                            <li>Click on the cart icon to review your items</li>
+                            <li>Click "Proceed to Checkout"</li>
+                            <li>Sign in or create an account</li>
+                            <li>Enter your shipping and payment information</li>
+                            <li>Review your order and click "Place Order"</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">What payment methods do you accept?</div>
+                    <div class="faq-answer">
+                        <p>We accept the following payment methods:</p>
+                        <ul>
+                            <li>Credit/Debit Cards (Visa, Mastercard, American Express)</li>
+                            <li>PayPal</li>
+                            <li>GCash</li>
+                            <li>Bank Transfer</li>
+                            <li>Cash on Delivery (for eligible areas)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Is my payment information secure?</div>
+                    <div class="faq-answer">
+                        Yes, we use industry-standard SSL encryption to protect your payment information. We never store your complete credit card details on our servers.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <h2>Shipping & Delivery</h2>
+            <div class="faq-card">
+                <div class="faq-item">
+                    <div class="faq-question">How long does shipping take?</div>
+                    <div class="faq-answer">
+                        <p>Our standard shipping times are:</p>
+                        <ul>
+                            <li>Standard Shipping: 3-5 business days</li>
+                            <li>Express Shipping: 1-2 business days</li>
+                            <li>Same Day Delivery: Within 24 hours (selected areas only)</li>
+                        </ul>
+                        <p>Delivery times may vary depending on your location and product availability.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Do you ship internationally?</div>
+                    <div class="faq-answer">
+                        Currently, we only ship within the Philippines. We're working on expanding our international shipping options in the future.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">How can I track my order?</div>
+                    <div class="faq-answer">
+                        You can track your order by:
+                        <ul>
+                            <li>Logging into your account and viewing order details</li>
+                            <li>Clicking the tracking link in your shipping confirmation email</li>
+                            <li>Contacting our customer service with your order number</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <h2>Returns & Refunds</h2>
+            <div class="faq-card">
+                <div class="faq-item">
+                    <div class="faq-question">What is your return policy?</div>
+                    <div class="faq-answer">
+                        <p>We accept returns within 14 days of delivery for most items. The item must be:</p>
+                        <ul>
+                            <li>In original condition</li>
+                            <li>Unused and unopened</li>
+                            <li>In original packaging with all accessories</li>
+                            <li>Accompanied by original receipt or order confirmation</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">How long do refunds take?</div>
+                    <div class="faq-answer">
+                        Refunds are typically processed within 5-7 business days after we receive your return. Credit card refunds may take 7-10 business days to appear on your statement.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Do I have to pay for return shipping?</div>
+                    <div class="faq-answer">
+                        Return shipping is free for items that are defective or damaged upon arrival. For other returns, a return shipping fee may apply.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <h2>Product Information</h2>
+            <div class="faq-card">
+                <div class="faq-item">
+                    <div class="faq-question">Are your products authentic?</div>
+                    <div class="faq-answer">
+                        Yes, all products sold on TechGadgetHub are 100% authentic and come with manufacturer warranties. We only source products from authorized distributors and manufacturers.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Do you offer product warranties?</div>
+                    <div class="faq-answer">
+                        <p>Yes, our products come with:</p>
+                        <ul>
+                            <li>Manufacturer's warranty (varies by product)</li>
+                            <li>Our 14-day return policy</li>
+                            <li>Extended warranty options available at checkout</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">How do I know if a product is in stock?</div>
+                    <div class="faq-answer">
+                        Product availability is shown on each product page. If an item is out of stock, you can:
+                        <ul>
+                            <li>Sign up for stock notifications</li>
+                            <li>Check back later</li>
+                            <li>Contact our customer service for estimated restock dates</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <h2>Account & Security</h2>
+            <div class="faq-card">
+                <div class="faq-item">
+                    <div class="faq-question">How do I create an account?</div>
+                    <div class="faq-answer">
+                        <p>To create an account:</p>
+                        <ul>
+                            <li>Click on "Account" in the top right corner</li>
+                            <li>Select "Create Account"</li>
+                            <li>Fill in your details</li>
+                            <li>Verify your email address</li>
+                            <li>Start shopping!</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">How do I reset my password?</div>
+                    <div class="faq-answer">
+                        <p>To reset your password:</p>
+                        <ul>
+                            <li>Click on "Account"</li>
+                            <li>Select "Forgot Password"</li>
+                            <li>Enter your email address</li>
+                            <li>Follow the instructions in the reset email</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">How do I update my account information?</div>
+                    <div class="faq-answer">
+                        <p>You can update your account information by:</p>
+                        <ul>
+                            <li>Logging into your account</li>
+                            <li>Going to "Account Settings"</li>
+                            <li>Updating the information you want to change</li>
+                            <li>Saving your changes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <h2>TechGadgetHub</h2>
+                    </div>
+                    <p>Your ultimate destination for the latest and greatest in tech gadgets. Quality products, competitive prices, and exceptional service.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">All Products</a></li>
+                        <li><a href="deals.html">Deals</a></li>
+                        <li><a href="new-arrivals.html">New Arrivals</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Help & Info</h3>
+                    <ul class="footer-links">
+                        <li><a href="shipping.html">Shipping Information</a></li>
+                        <li><a href="returns.html">Returns & Exchanges</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                        <li><a href="sitemap.html">Site Map</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Pamantasan ng Cabuyao, Katapatan Homes, Brgy. Banay-banay, Cabuyao City, Laguna</li>
+                        <li><i class="fas fa-phone"></i> (+63) 951 602 1107</li>
+                        <li><i class="fas fa-envelope"></i> techgadgethub@gmail.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 9AM-6PM, Sat: 10AM-4PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2025 TechGadgetHub. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- JavaScript Files -->
+    <script src="main.js"></script>
+</body>
+</html> 
