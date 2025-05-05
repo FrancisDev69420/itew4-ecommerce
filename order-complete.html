@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deals - TechGadgetHub</title>
+    <title>Order Complete - TechGadgetHub</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="main.js"></script>
 </head>
 <body>
     <!-- Header Section -->
@@ -20,7 +20,7 @@
                 </div>
                 <div class="search-bar">
                     <form action="products.html">
-                        <input type="text" placeholder="Search for deals..." name="query">
+                        <input type="text" placeholder="Search..." name="query">
                         <button type="submit"><i class="fas fa-search"></i></button>
                     </form>
                 </div>
@@ -45,7 +45,7 @@
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li class="dropdown">
-                    <a>Categories <i class="fas fa-chevron-down"></i></a>
+                    <a href="#">Categories <i class="fas fa-chevron-down"></i></a>
                     <div class="dropdown-content">
                         <a href="categories/smartphones.html">Smartphones</a>
                         <a href="categories/laptops.html">Laptops & Computers</a>
@@ -55,7 +55,7 @@
                         <a href="categories/photography.html">Photography</a>
                     </div>
                 </li>
-                <li><a href="deals.html" class="active">Deals</a></li>
+                <li><a href="deals.html">Deals</a></li>
                 <li><a href="new-arrivals.html">New Arrivals</a></li>
                 <li><a href="blog.html">Tech Blog</a></li>
                 <li><a href="about.html">About Us</a></li>
@@ -64,52 +64,71 @@
         </div>
     </nav>
 
-    <!-- Deals Section -->
+    <!-- Order Complete Section -->
     <main>
-        <div class="container product-container">
-            <h2>Exclusive Deals</h2>
-            <p>Don't miss out on these amazing discounts! Limited time offers on our best-selling products.</p>
-            <div id="products-grid" class="products-grid">
-                <!-- Deal 1 -->
-                <div class="product-item" data-name="MacBook Pro">
-                    <div class="product-badge sale">Sale</div>
-                    <img src="https://images.gmanews.tv/webpics/2021/10/Apple_Macbook_Pro_2021_10_19_17_09_32.jpg" alt="MacBook Pro">
-                    <h3>MacBook Pro</h3>
-                    <p><span class="current-price">₱1,299.99</span> <span class="old-price">₱1,499.99</span></p>
-                    <a class="btn">View Details</a>
+        <div class="container order-complete">
+            <i class="fas fa-check-circle success-icon"></i>
+            <h1>Thank You for Your Order!</h1>
+            <p>Your order has been successfully placed and is being processed.</p>
+            
+            <div class="order-number">
+                <h3>Order Number: <span>#TGH-2024-1234</span></h3>
+                <p>Order Date: March 15, 2024</p>
+            </div>
+
+            <div class="order-details">
+                <h2>Order Details</h2>
+                <div class="order-info">
+                    <div class="info-section">
+                        <h3>Shipping Information</h3>
+                        <p><strong>Name:</strong> John Doe</p>
+                        <p><strong>Address:</strong> 123 Tech Street</p>
+                        <p><strong>City:</strong> Gadget City</p>
+                        <p><strong>State:</strong> TC 12345</p>
+                        <p><strong>Phone:</strong> (123) 456-7890</p>
+                    </div>
+                    <div class="info-section">
+                        <h3>Payment Information</h3>
+                        <p><strong>Payment Method:</strong> Credit Card</p>
+                        <p><strong>Card Number:</strong> **** **** **** 1234</p>
+                        <p><strong>Total Amount:</strong> ₱1,588.57</p>
+                        <p><strong>Status:</strong> <span class="status">Paid</span></p>
+                    </div>
                 </div>
-                <!-- Deal 2 -->
-                <div class="product-item" data-name="SonicWave Pro Headphones">
-                    <div class="product-badge sale">Sale</div>
-                    <img src="https://gutostore.com/cdn/shop/files/Sddcca517489f4e4c99a4d2408d4646177_394x.webp?v=1745329711" alt="SonicWave Pro Headphones">
-                    <h3>SonicWave Pro Headphones</h3>
-                    <p><span class="current-price">₱199.99</span> <span class="old-price">₱249.99</span></p>
-                    <a class="btn">View Details</a>
+
+                <div class="order-items">
+                    <h3>Order Items</h3>
+                    <div class="order-item">
+                        <img src="https://s.alicdn.com/@sc04/kf/H424c0ec9e82d43e3a777fd58c397453cC.jpg_720x720q50.jpg" alt="UltraPhone Pro 13">
+                        <div class="item-details">
+                            <h4>UltraPhone Pro 13</h4>
+                            <p>Quantity: 1</p>
+                            <p>Price: ₱899.99</p>
+                        </div>
+                    </div>
+                    <div class="order-item">
+                        <img src="https://gutostore.com/cdn/shop/files/Sddcca517489f4e4c99a4d2408d4646177_394x.webp?v=1745329711" alt="SonicWave Pro Headphones">
+                        <div class="item-details">
+                            <h4>SonicWave Pro Headphones</h4>
+                            <p>Quantity: 1</p>
+                            <p>Price: ₱249.99</p>
+                        </div>
+                    </div>
                 </div>
-                <!-- Deal 3 -->
-                <div class="product-item" data-name="Smart Home Hub">
-                    <div class="product-badge sale">Sale</div>
-                    <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&fit=crop&w=300&q=80" alt="Smart Home Hub">
-                    <h3>Smart Home Hub</h3>
-                    <p><span class="current-price">₱249.99</span> <span class="old-price">₱299.99</span></p>
-                    <a class="btn">View Details</a>
-                </div>
-                <!-- Deal 4 -->
-                <div class="product-item" data-name="FitTech Smart Watch X2">
-                    <div class="product-badge sale">Sale</div>
-                    <img src="https://image.made-in-china.com/2f0j00uDTfVsZgHBke/Fashion-X2-Plus-Smart-Watch-Waterproof-IP68-Heart-Rate-Monitor-Blood-Pressure-Pedometer-Sport-Smartwatch-X2-.jpg" alt="FitTech Smart Watch X2">
-                    <h3>FitTech Smart Watch X2</h3>
-                    <p><span class="current-price">₱149.99</span> <span class="old-price">₱179.99</span></p>
-                    <a class="btn">View Details</a>
-                </div>
-                <!-- Deal 5 -->
-                <div class="product-item" data-name="UltraPhone Pro 13">
-                    <div class="product-badge sale">Sale</div>
-                    <img src="https://s.alicdn.com/@sc04/kf/H424c0ec9e82d43e3a777fd58c397453cC.jpg_720x720q50.jpg" alt="UltraPhone Pro 13">
-                    <h3>UltraPhone Pro 13</h3>
-                    <p><span class="current-price">₱899.99</span> <span class="old-price">₱999.99</span></p>
-                    <a class="btn">View Details</a>
-                </div>
+            </div>
+
+            <div class="next-steps">
+                <h3>What's Next?</h3>
+                <ul class="steps-list">
+                    <li><i class="fas fa-envelope"></i> You will receive an order confirmation email shortly</li>
+                    <li><i class="fas fa-box"></i> Your order will be processed and prepared for shipping</li>
+                    <li><i class="fas fa-truck"></i> You will receive shipping updates via email</li>
+                    <li><i class="fas fa-star"></i> Don't forget to review your products after receiving them</li>
+                </ul>
+            </div>
+
+            <div class="action-buttons">
+                <a href="index.html" class="btn btn-primary">Continue Shopping</a>
             </div>
         </div>
     </main>
@@ -163,15 +182,6 @@
                         <li><a href="sitemap.html">Site Map</a></li>
                     </ul>
                 </div>
-                <div class="footer-column">
-                    <h3>Contact Us</h3>
-                    <ul class="contact-info">
-                        <li><i class="fas fa-map-marker-alt"></i> Pamantasan ng Cabuyao, Katapatan Homes, Brgy. Banay-banay, Cabuyao City, Laguna</li>
-                        <li><i class="fas fa-phone"></i> (+63) 951 602 1107</li>
-                        <li><i class="fas fa-envelope"></i> techgadgethub@gmail.com</li>
-                        <li><i class="fas fa-clock"></i> Mon-Fri: 9AM-6PM, Sat: 10AM-4PM</li>
-                    </ul>
-                </div>
             </div>
             <div class="footer-bottom">
                 <div class="copyright">
@@ -188,29 +198,5 @@
 
     <!-- JavaScript Files -->
     <script src="main.js"></script>
-
-    <!-- Mobile Menu -->
-    <div class="mobile-menu">
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li class="dropdown">
-                <a href="#">Categories <i class="fas fa-chevron-down"></i></a>
-                <div class="dropdown-content">
-                    <a href="categories/smartphones.html">Smartphones</a>
-                    <a href="categories/laptops.html">Laptops & Computers</a>
-                    <a href="categories/audio.html">Audio Devices</a>
-                    <a href="categories/smart-home.html">Smart Home</a>
-                    <a href="categories/wearables.html">Wearables</a>
-                    <a href="categories/photography.html">Photography</a>
-                </div>
-            </li>
-            <li><a href="deals.html">Deals</a></li>
-            <li><a href="new-arrivals.html">New Arrivals</a></li>
-            <li><a href="blog.html">Tech Blog</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </div>
-
 </body>
-</html>
+</html> 

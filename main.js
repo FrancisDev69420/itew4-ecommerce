@@ -20,6 +20,36 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    // Function to update header based on login status
+    function updateHeader() {
+        const accountLink = document.querySelector('.account a');
+        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        
+        if (currentUser) {
+            // User is logged in
+            accountLink.innerHTML = `<i class="fas fa-user"></i> ${currentUser.name}`;
+            accountLink.href = '#'; // Changed to # to prevent navigation
+        } else {
+            // User is not logged in
+            accountLink.innerHTML = '<i class="fas fa-user"></i> Account';
+            accountLink.href = 'account/login.html';
+        }
+    }
+
+    // Call updateHeader when page loads
+    updateHeader();
+    
+    // Add logout functionality
+    const accountLink = document.querySelector('.account a');
+    accountLink.addEventListener('click', function(e) {
+        if (localStorage.getItem('currentUser')) {
+            e.preventDefault();
+            localStorage.removeItem('currentUser');
+            updateHeader();
+            window.location.href = 'index.html';
+        }
+    });
+
     // Search Form Logic
     const searchForm = document.getElementById("search-form");
     const searchInput = document.getElementById("product-search");
