@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - TechGadgetHub</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Additional Cart-specific Styles */
+        .cart-page {
+            padding: 40px 0;
+        }
+        
+        .cart-empty {
+            text-align: center;
+            padding: 40px 0;
+        }
+        
+        .cart-empty i {
+            font-size: 64px;
+            color: #ddd;
+            margin-bottom: 20px;
+        }
+        
+        .cart-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+        
+        .cart-table th {
+            text-align: left;
+            padding: 12px;
+            background-color: #f9f9f9;
+            border-bottom: 2px solid #eee;
+            font-weight: 600;
+        }
+        
+        .cart-table td {
+            padding: 15px 12px;
+            border-bottom: 1px solid #eee;
+            vertical-align: middle;
+        }
+        
+        .cart-product {
+            display: flex;
+            align-items: center;
+        }
+        
+        .cart-product img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            margin-right: 15px;
+            border-radius: 5px;
+        }
+        
+        .product-details h3 {
+            margin: 0 0 5px 0;
+            font-size: 16px;
+        }
+        
+        .product-details .product-meta {
+            color: #777;
+            font-size: 14px;
+        }
+        
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            max-width: 120px;
+        }
+        
+        .quantity-btn {
+            width: 30px;
+            height: 30px;
+            background-color: #f1f1f1;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .quantity-input {
+            width: 40px;
+            height: 30px;
+            text-align: center;
+            border: 1px solid #ddd;
+            margin: 0 5px;
+            font-size: 14px;
+        }
+        
+        .remove-item {
+            color: #e74c3c;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .remove-item:hover {
+            color: #c0392b;
+        }
+        
+        .cart-summary {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .summary-row.total {
+            border-top: 2px solid #ddd;
+            border-bottom: none;
+            padding-top: 15px;
+            margin-top: 10px;
+            font-weight: 700;
+            font-size: 18px;
+        }
+        
+        .promo-code {
+            margin: 20px 0;
+        }
+        
+        .promo-code input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-right: 10px;
+            width: 200px;
+        }
+        
+        .cart-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        
+        .update-cart {
+            background-color: transparent;
+            border: 1px solid #333;
+            color: #333;
+            padding: 12px 25px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .update-cart:hover {
+            background-color: #333;
+            color: #fff;
+        }
+        
+        .checkout-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .checkout-btn:hover {
+            background-color: #45a049;
+        }
+        
+        .continue-shopping {
+            display: inline-block;
+            margin-top: 20px;
+            color: #555;
+            text-decoration: none;
+        }
+        
+        .continue-shopping i {
+            margin-right: 5px;
+        }
+        
+        .continue-shopping:hover {
+            color: #000;
+        }
+        
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .recommended-products {
+            margin-top: 60px;
+        }
+        
+        .recommended-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .cart-layout {
+                flex-direction: column;
+            }
+            
+            .cart-items {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+            
+            .cart-sidebar {
+                width: 100%;
+            }
+            
+            .cart-table {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            .cart-product img {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .cart-actions {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .cart-actions button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-wrapper">
+                <div class="logo">
+                    <a href="index.html">
+                        <h1>TechGadgetHub</h1>
+                    </a>
+                </div>
+                <div class="search-bar">
+                    <form id="search-form" action="products.html">
+                        <input id="product-search" type="text" placeholder="Search for gadgets..." name="query">
+                        <button type="submit"><i class="fas fa-search"></i></button>
+                    </form>
+                </div>
+                <div class="header-actions">
+                    <div class="account">
+                        <a href="account/login.html"><i class="fas fa-user"></i> Account</a>
+                    </div>
+                    <div class="cart">
+                        <a href="cart.html" class="active"><i class="fas fa-shopping-cart"></i> Cart (3)</a>
+                    </div>
+                </div>
+                <div class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav class="main-nav">
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a>Categories <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="categories/smartphones.html">Smartphones</a>
+                        <a href="categories/laptops.html">Laptops & Computers</a>
+                        <a href="categories/audio.html">Audio Devices</a>
+                        <a href="categories/smart-home.html">Smart Home</a>
+                        <a href="categories/wearables.html">Wearables</a>
+                        <a href="categories/photography.html">Photography</a>
+                    </div>
+                </li>
+                <li><a href="deals.html">Deals</a></li>
+                <li><a href="new-arrivals.html">New Arrivals</a></li>
+                <li><a href="blog.html">Tech Blog</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Cart Section -->
+    <section class="cart-page">
+        <div class="container">
+            <div class="cart-header">
+                <h1>Shopping Cart</h1>
+                <a href="index.html" class="continue-shopping"><i class="fas fa-arrow-left"></i> Continue Shopping</a>
+            </div>
+
+            <!-- Cart Content -->
+            <div class="cart-layout">
+                <div class="cart-items">
+                    <table class="cart-table">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Subtotal</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Product 1 -->
+                            <tr>
+                                <td>
+                                    <div class="cart-product">
+                                        <img src="https://s.alicdn.com/@sc04/kf/H424c0ec9e82d43e3a777fd58c397453cC.jpg_720x720q50.jpg" alt="UltraPhone Pro 13">
+                                        <div class="product-details">
+                                            <h3>UltraPhone Pro 13</h3>
+                                            <div class="product-meta">Color: Black, Storage: 256GB</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>₱899.99</td>
+                                <td>
+                                    <div class="quantity-selector">
+                                        <button class="quantity-btn decrease"><i class="fas fa-minus"></i></button>
+                                        <input type="number" class="quantity-input" value="1" min="1" max="10">
+                                        <button class="quantity-btn increase"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                </td>
+                                <td>₱899.99</td>
+                                <td>
+                                    <button class="remove-item"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            
+                            <!-- Product 2 -->
+                            <tr>
+                                <td>
+                                    <div class="cart-product">
+                                        <img src="https://gutostore.com/cdn/shop/files/Sddcca517489f4e4c99a4d2408d4646177_394x.webp?v=1745329711" alt="SonicWave Pro Headphones">
+                                        <div class="product-details">
+                                            <h3>SonicWave Pro Headphones</h3>
+                                            <div class="product-meta">Color: Blue</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>₱249.99</td>
+                                <td>
+                                    <div class="quantity-selector">
+                                        <button class="quantity-btn decrease"><i class="fas fa-minus"></i></button>
+                                        <input type="number" class="quantity-input" value="1" min="1" max="10">
+                                        <button class="quantity-btn increase"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                </td>
+                                <td>₱249.99</td>
+                                <td>
+                                    <button class="remove-item"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            
+                            <!-- Product 3 -->
+                            <tr>
+                                <td>
+                                    <div class="cart-product">
+                                        <img src="https://image.made-in-china.com/2f0j00uDTfVsZgHBke/Fashion-X2-Plus-Smart-Watch-Waterproof-IP68-Heart-Rate-Monitor-Blood-Pressure-Pedometer-Sport-Smartwatch-X2-.jpg" alt="FitTech Smart Watch X2">
+                                        <div class="product-details">
+                                            <h3>FitTech Smart Watch X2</h3>
+                                            <div class="product-meta">Color: Black</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>₱179.99</td>
+                                <td>
+                                    <div class="quantity-selector">
+                                        <button class="quantity-btn decrease"><i class="fas fa-minus"></i></button>
+                                        <input type="number" class="quantity-input" value="1" min="1" max="10">
+                                        <button class="quantity-btn increase"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                </td>
+                                <td>₱179.99</td>
+                                <td>
+                                    <button class="remove-item"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <!-- Cart Actions -->
+                    <div class="cart-actions">
+                        <button class="update-cart">Update Cart</button>
+                        <button class="checkout-btn">Proceed to Checkout</button>
+                    </div>
+                </div>
+                
+                <!-- Cart Summary Sidebar -->
+                <div class="cart-sidebar">
+                    <div class="cart-summary">
+                        <h2>Order Summary</h2>
+                        <div class="summary-row">
+                            <span>Subtotal (3 items)</span>
+                            <span>₱1,329.97</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Shipping</span>
+                            <span>₱99.00</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Tax</span>
+                            <span>₱159.60</span>
+                        </div>
+                        <div class="promo-code">
+                            <input type="text" placeholder="Enter promo code">
+                            <button class="btn btn-outline">Apply</button>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Total</span>
+                            <span>₱1,588.57</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Shipping Information -->
+                    <div class="shipping-info cart-summary">
+                        <h3>Shipping Information</h3>
+                        <p><i class="fas fa-truck"></i> Free standard shipping on orders over ₱2,000</p>
+                        <p><i class="fas fa-clock"></i> Estimated delivery: 3-5 business days</p>
+                        <p><i class="fas fa-shield-alt"></i> Secure payment</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- You Might Also Like Section -->
+            <div class="recommended-products">
+                <h2 class="recommended-title">You Might Also Like</h2>
+                <div class="product-grid">
+                    <!-- Product Card 1 -->
+                    <div class="product-card">
+                        <div class="product-badge">New</div>
+                        <div class="product-image">
+                            <img src="https://images.gmanews.tv/webpics/2021/10/Apple_Macbook_Pro_2021_10_19_17_09_32.jpg" alt="MacBook Pro">
+                            <div class="product-actions">
+                                <button class="btn-icon"><i class="fas fa-heart"></i></button>
+                                <button class="btn-icon"><i class="fas fa-shopping-cart"></i></button>
+                                <button class="btn-icon"><i class="fas fa-eye"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">MacBook Pro</h3>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(95)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">₱1,299.99</span>
+                                <span class="old-price">₱1,499.99</span>
+                            </div>
+                            <a class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 2 -->
+                    <div class="product-card">
+                        <div class="product-badge sale">Sale</div>
+                        <div class="product-image">
+                            <img src="https://www.yugatech.com/wp-content/uploads/2021/01/smart-home-devices-philippines-yugatech.jpg" alt="Smart Home Hub">
+                            <div class="product-actions">
+                                <button class="btn-icon"><i class="fas fa-heart"></i></button>
+                                <button class="btn-icon"><i class="fas fa-shopping-cart"></i></button>
+                                <button class="btn-icon"><i class="fas fa-eye"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Smart Home Hub Pro</h3>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>(63)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">₱149.99</span>
+                                <span class="old-price">₱199.99</span>
+                            </div>
+                            <a class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 3 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://www.superprof.ca/blog/wp-content/uploads/2018/07/photography-accessories-874x700.jpg" alt="Camera Lens">
+                            <div class="product-actions">
+                                <button class="btn-icon"><i class="fas fa-heart"></i></button>
+                                <button class="btn-icon"><i class="fas fa-shopping-cart"></i></button>
+                                <button class="btn-icon"><i class="fas fa-eye"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Pro DSLR Camera Lens</h3>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>(47)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">₱399.99</span>
+                            </div>
+                            <a class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 4 -->
+                    <div class="product-card">
+                        <div class="product-badge">Bestseller</div>
+                        <div class="product-image">
+                            <img src="https://lh7-us.googleusercontent.com/K6wkObFLQCVMML42hYUUwFzWQCE9Ypv3OQTqqG4hVac2QV1y7MWEU0PdPtNfJltDTrHRE3Xh3EYXqQXqmA4GX1gGGA291OmOZZZZjAl8AdhQvfoid9rMEmz1SXD_PA1sdk62WbOQkCz-Uz6advXVJqw" alt="Fitness Tracker">
+                            <div class="product-actions">
+                                <button class="btn-icon"><i class="fas fa-heart"></i></button>
+                                <button class="btn-icon"><i class="fas fa-shopping-cart"></i></button>
+                                <button class="btn-icon"><i class="fas fa-eye"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Ultra Fitness Tracker</h3>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(132)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">₱129.99</span>
+                                <span class="old-price">₱149.99</span>
+                            </div>
+                            <a class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Subscribe to Our Newsletter</h2>
+                <p>Get the latest updates on new products, special offers, and tech news.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <h2>TechGadgetHub</h2>
+                    </div>
+                    <p>Your ultimate destination for the latest and greatest in tech gadgets. Quality products, competitive prices, and exceptional service.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">All Products</a></li>
+                        <li><a href="deals.html">Deals</a></li>
+                        <li><a href="new-arrivals.html">New Arrivals</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="categories/smartphones.html">Smartphones</a></li>
+                        <li><a href="categories/laptops.html">Laptops & Computers</a></li>
+                        <li><a href="categories/audio.html">Audio Devices</a></li>
+                        <li><a href="categories/smart-home.html">Smart Home</a></li>
+                        <li><a href="categories/wearables.html">Wearables</a></li>
+                        <li><a href="categories/photography.html">Photography</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Help & Info</h3>
+                    <ul class="footer-links">
+                        <li><a href="shipping.html">Shipping Information</a></li>
+                        <li><a href="returns.html">Returns & Exchanges</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                        <li><a href="sitemap.html">Site Map</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Pamantasan ng Cabuyao, Katapatan Homes, Brgy. Banay-banay, Cabuyao City, Laguna</li>
+                        <li><i class="fas fa-phone"></i> (+63) 951 602 1107</li>
+                        <li><i class="fas fa-envelope"></i> techgadgethub@gmail.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 9AM-6PM, Sat: 10AM-4PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2025 TechGadgetHub. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            document.querySelector('.mobile-menu').classList.toggle('active');
+        });
+
+        // Back to Top Button
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                document.getElementById('backToTop').style.display = "block";
+            } else {
+                document.getElementById('backToTop').style.display = "none";
+            }
+        });
+
+        document.getElementById('backToTop').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        });
+
+        // Quantity Selector
+        const decreaseButtons = document.querySelectorAll('.decrease');
+        const increaseButtons = document.querySelectorAll('.increase');
+        const quantityInputs = document.querySelectorAll('.quantity-input');
+
+        decreaseButtons.forEach((button, index) => {
+            button.addEventListener('click', function() {
+                if (quantityInputs[index].value > 1) {
+                    quantityInputs[index].value = parseInt(quantityInputs[index].value) - 1;
+                    updateCartItem(index);
+                }
+            });
+        });
+
+        increaseButtons.forEach((button, index) => {
+            button.addEventListener('click', function() {
+                if (quantityInputs[index].value < 10) {
+                    quantityInputs[index].value = parseInt(quantityInputs[index].value) + 1;
+                    updateCartItem(index);
+                }
+            });
+        });
+
+        quantityInputs.forEach((input, index) => {
+            input.addEventListener('change', function() {
+                if (this.value < 1) this.value = 1;
+                if (this.value > 10) this.value = 10;
+                updateCartItem(index);
+            });
+        });
+
+        // Remove item from cart
+        const removeButtons = document.querySelectorAll('.remove-item');
+        removeButtons.forEach((button, index) => {
+            button.addEventListener('click', function() {
+                if (confirm('Are you sure you want to remove this item from your cart?')) {
+                    const row = this.closest('tr');
+                    row.classList.add('removing');
+                    setTimeout(() => {
+                        row.remove();
+                        updateCart();
+                    }, 300);
+                }
+            });
+        });
+
+        // Update cart total (dummy function)
+        function updateCartItem(index) {
+            // In a real implementation, this would make an AJAX call to update the cart
+            console.log(`Updated item ${index+1} quantity to ${quantityInputs[index].value}`);
+        }
+
+        function updateCart() {
+            // This would recalculate totals based on current cart items
+            console.log('Cart updated');
+        }
+
+        // Update cart button
+        document.querySelector('.update-cart').addEventListener('click', function() {
+            alert('Cart updated successfully!');
+        });
+
+        // Checkout button 
+        document.querySelector('.checkout-btn').addEventListener('click', function() {
+            window.location.href = 'checkout.html';
+        });
+    </script>
+</body>
+</html>

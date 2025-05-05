@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - TechGadgetHub</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Checkout-specific Styles */
+        .checkout-page {
+            padding: 40px 0;
+        }
+        
+        .checkout-container {
+            display: flex;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .checkout-title-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .checkout-form {
+            flex: 3;
+        }
+        
+        .checkout-summary {
+            flex: 1;
+        }
+        
+        .checkout-section {
+            margin-bottom: 30px;
+            padding: 25px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .checkout-section h2 {
+            margin-top: 0;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            font-size: 20px;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .form-group {
+            flex: 1;
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 15px;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+        
+        .required:after {
+            content: " *";
+            color: #e74c3c;
+        }
+        
+        .address-checkbox {
+            margin: 15px 0;
+        }
+        
+        .form-divider {
+            border-top: 1px solid #eee;
+            margin: 25px 0;
+        }
+        
+        .payment-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .payment-method {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .payment-method:hover,
+        .payment-method.selected {
+            border-color: #4CAF50;
+            background-color: #f9fff9;
+        }
+        
+        .payment-method.selected {
+            box-shadow: 0 2px 8px rgba(76, 175, 80, 0.2);
+        }
+        
+        .payment-method input[type="radio"] {
+            margin-right: 15px;
+        }
+        
+        .payment-method-details {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+        
+        .payment-icons {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .payment-icons i {
+            font-size: 22px;
+            color: #555;
+        }
+        
+        .card-inputs {
+            display: none;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 0 0 4px 4px;
+            margin-top: -15px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-top: none;
+        }
+        
+        .card-inputs.active {
+            display: block;
+        }
+        
+        .order-items {
+            margin-bottom: 20px;
+        }
+        
+        .order-item {
+            display: flex;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .order-item:last-child {
+            border-bottom: none;
+        }
+        
+        .order-item-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+        
+        .order-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .order-item-details {
+            flex: 1;
+        }
+        
+        .order-item-name {
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        
+        .order-item-meta {
+            font-size: 13px;
+            color: #777;
+            margin-bottom: 5px;
+        }
+        
+        .order-item-price {
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .summary-row.total {
+            border-top: 2px solid #ddd;
+            border-bottom: none;
+            padding-top: 15px;
+            margin-top: 10px;
+            font-weight: 700;
+            font-size: 18px;
+        }
+        
+        .place-order-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 15px;
+            width: 100%;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 20px;
+        }
+        
+        .place-order-btn:hover {
+            background-color: #45a049;
+        }
+
+        .recommended-title {
+            text-align: center;
+        }
+        
+        .accepted-payments {
+            margin-top: 15px;
+            text-align: center;
+        }
+        
+        .accepted-payments p {
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #777;
+        }
+        
+        .payment-icons-list {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .payment-icons-list i {
+            font-size: 24px;
+            color: #555;
+        }
+        
+        .secure-checkout {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 8px;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .secure-checkout i {
+            color: #4CAF50;
+        }
+        
+        .checkout-header {
+            margin-bottom: 30px;
+        }
+        
+        .checkout-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            position: relative;
+        }
+        
+        .checkout-steps:before {
+            content: "";
+            position: absolute;
+            height: 2px;
+            background-color: #ddd;
+            top: 25px;
+            left: 0;
+            right: 0;
+            z-index: 1;
+        }
+        
+        .checkout-step {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            width: 33.33%;
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background-color: #fff;
+            border: 2px solid #ddd;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            font-weight: 600;
+            color: #777;
+        }
+        
+        .step-number.active {
+            background-color: #4CAF50;
+            border-color: #4CAF50;
+            color: white;
+        }
+        
+        .step-number.completed {
+            background-color: #4CAF50;
+            border-color: #4CAF50;
+            color: white;
+        }
+        
+        .step-title {
+            font-weight: 500;
+            color: #777;
+        }
+        
+        .step-title.active {
+            color: #4CAF50;
+        }
+        
+        .checkout-progress {
+            height: 2px;
+            background-color: #4CAF50;
+            position: absolute;
+            top: 25px;
+            left: 0;
+            z-index: 1;
+            width: 50%; /* Adjust based on current step */
+        }
+        
+        .continue-shopping {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #555;
+            text-decoration: none;
+        }
+        
+        .continue-shopping i {
+            margin-right: 5px;
+        }
+        
+        .continue-shopping:hover {
+            color: #000;
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 992px) {
+            .checkout-container {
+                flex-direction: column;
+            }
+            
+            .checkout-form, .checkout-summary {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .checkout-steps {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+            
+            .checkout-steps:before {
+                display: none;
+            }
+            
+            .checkout-step {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .step-number {
+                margin: 0;
+            }
+            
+            .checkout-progress {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-wrapper">
+                <div class="logo">
+                    <a href="index.html">
+                        <h1>TechGadgetHub</h1>
+                    </a>
+                </div>
+                <div class="search-bar">
+                    <form id="search-form" action="products.html">
+                        <input id="product-search" type="text" placeholder="Search for gadgets..." name="query">
+                        <button type="submit"><i class="fas fa-search"></i></button>
+                    </form>
+                </div>
+                <div class="header-actions">
+                    <div class="account">
+                        <a href="account/login.html"><i class="fas fa-user"></i> Account</a>
+                    </div>
+                    <div class="cart">
+                        <a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart (3)</a>
+                    </div>
+                </div>
+                <div class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav class="main-nav">
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a>Categories <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="categories/smartphones.html">Smartphones</a>
+                        <a href="categories/laptops.html">Laptops & Computers</a>
+                        <a href="categories/audio.html">Audio Devices</a>
+                        <a href="categories/smart-home.html">Smart Home</a>
+                        <a href="categories/wearables.html">Wearables</a>
+                        <a href="categories/photography.html">Photography</a>
+                    </div>
+                </li>
+                <li><a href="deals.html">Deals</a></li>
+                <li><a href="new-arrivals.html">New Arrivals</a></li>
+                <li><a href="blog.html">Tech Blog</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Checkout Section -->
+    <section class="checkout-page">
+        <div class="container">
+            <div class="checkout-header">
+                <div class="checkout-title-container">
+                    <h1>Checkout</h1>
+                    <a href="cart.html" class="continue-shopping"><i class="fas fa-arrow-left"></i> Back to Cart</a>
+                </div>
+                
+                <!-- Checkout Progress Steps -->
+                <div class="checkout-steps">
+                    <div class="checkout-progress"></div>
+                    <div class="checkout-step">
+                        <div class="step-number completed"><i class="fas fa-check"></i></div>
+                        <div class="step-title">Shopping Cart</div>
+                    </div>
+                    <div class="checkout-step">
+                        <div class="step-number active">2</div>
+                        <div class="step-title active">Checkout</div>
+                    </div>
+                    <div class="checkout-step">
+                        <div class="step-number">3</div>
+                        <div class="step-title">Order Complete</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="checkout-container">
+                <!-- Checkout Form -->
+                <div class="checkout-form">
+                    <!-- Customer Information -->
+                    <div class="checkout-section">
+                        <h2>Customer Information</h2>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName" class="required">First Name</label>
+                                <input type="text" id="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName" class="required">Last Name</label>
+                                <input type="text" id="lastName" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email" class="required">Email Address</label>
+                                <input type="email" id="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone" class="required">Phone Number</label>
+                                <input type="tel" id="phone" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Shipping Address -->
+                    <div class="checkout-section">
+                        <h2>Shipping Address</h2>
+                        <div class="form-group">
+                            <label for="address" class="required">Address</label>
+                            <input type="text" id="address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="address2">Apartment, suite, etc. (optional)</label>
+                            <input type="text" id="address2">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="city" class="required">City</label>
+                                <input type="text" id="city" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="province" class="required">Province</label>
+                                <select id="province" required>
+                                    <option value="" selected disabled>Select Province</option>
+                                    <option value="Abra">Abra</option>
+                                    <option value="Agusan del Norte">Agusan del Norte</option>
+                                    <option value="Aklan">Aklan</option>
+                                    <option value="Albay">Albay</option>
+                                    <option value="Antique">Antique</option>
+                                    <option value="Apayao">Apayao</option>
+                                    <option value="Aurora">Aurora</option>
+                                    <option value="Basilan">Basilan</option>
+                                    <option value="Bataan">Bataan</option>
+                                    <option value="Batanes">Batanes</option>
+                                    <option value="Batangas">Batangas</option>
+                                    <option value="Benguet">Benguet</option>
+                                    <option value="Biliran">Biliran</option>
+                                    <option value="Bohol">Bohol</option>
+                                    <option value="Bukidnon">Bukidnon</option>
+                                    <option value="Bulacan">Bulacan</option>
+                                    <option value="Cagayan">Cagayan</option>
+                                    <option value="Camarines Norte">Camarines Norte</option>
+                                    <option value="Camarines Sur">Camarines Sur</option>
+                                    <option value="Camiguin">Camiguin</option>
+                                    <option value="Capiz">Capiz</option>
+                                    <option value="Catanduanes">Catanduanes</option>
+                                    <option value="Cavite">Cavite</option>
+                                    <option value="Cebu">Cebu</option>
+                                    <option value="Davao de Oro">Davao de Oro</option>
+                                    <option value="Davao del Norte">Davao del Norte</option>
+                                    <option value="Davao del Sur">Davao del Sur</option>
+                                    <option value="Davao Occidental">Davao Occidental</option>
+                                    <option value="Davao Oriental">Davao Oriental</option>
+                                    <option value="Dinagat Islands">Dinagat Islands</option>
+                                    <option value="Eastern Samar">Eastern Samar</option>
+                                    <option value="Guimaras">Guimaras</option>
+                                    <option value="Ifugao">Ifugao</option>
+                                    <option value="Ilocos Norte">Ilocos Norte</option>
+                                    <option value="Ilocos Sur">Ilocos Sur</option>
+                                    <option value="Iloilo">Iloilo</option>
+                                    <option value="Isabela">Isabela</option>
+                                    <option value="Kalinga">Kalinga</option>
+                                    <option value="La Union">La Union</option>
+                                    <option value="Laguna">Laguna</option>
+                                    <option value="Lanao del Norte">Lanao del Norte</option>
+                                    <option value="Lanao del Sur">Lanao del Sur</option>
+                                    <option value="Leyte">Leyte</option>
+                                    <option value="Maguindanao">Maguindanao</option>
+                                    <option value="Marinduque">Marinduque</option>
+                                    <option value="Masbate">Masbate</option>
+                                    <option value="Metro Manila">Metro Manila</option>
+                                    <option value="Misamis Occidental">Misamis Occidental</option>
+                                    <option value="Misamis Oriental">Misamis Oriental</option>
+                                    <option value="Mountain Province">Mountain Province</option>
+                                    <option value="Negros Occidental">Negros Occidental</option>
+                                    <option value="Negros Oriental">Negros Oriental</option>
+                                    <option value="Northern Samar">Northern Samar</option>
+                                    <option value="Nueva Ecija">Nueva Ecija</option>
+                                    <option value="Nueva Vizcaya">Nueva Vizcaya</option>
+                                    <option value="Occidental Mindoro">Occidental Mindoro</option>
+                                    <option value="Oriental Mindoro">Oriental Mindoro</option>
+                                    <option value="Palawan">Palawan</option>
+                                    <option value="Pampanga">Pampanga</option>
+                                    <option value="Pangasinan">Pangasinan</option>
+                                    <option value="Quezon">Quezon</option>
+                                    <option value="Quirino">Quirino</option>
+                                    <option value="Rizal">Rizal</option>
+                                    <option value="Romblon">Romblon</option>
+                                    <option value="Samar">Samar</option>
+                                    <option value="Sarangani">Sarangani</option>
+                                    <option value="Siquijor">Siquijor</option>
+                                    <option value="Sorsogon">Sorsogon</option>
+                                    <option value="South Cotabato">South Cotabato</option>
+                                    <option value="Southern Leyte">Southern Leyte</option>
+                                    <option value="Sultan Kudarat">Sultan Kudarat</option>
+                                    <option value="Sulu">Sulu</option>
+                                    <option value="Surigao del Norte">Surigao del Norte</option>
+                                    <option value="Surigao del Sur">Surigao del Sur</option>
+                                    <option value="Tarlac">Tarlac</option>
+                                    <option value="Tawi-Tawi">Tawi-Tawi</option>
+                                    <option value="Zambales">Zambales</option>
+                                    <option value="Zamboanga del Norte">Zamboanga del Norte</option>
+                                    <option value="Zamboanga del Sur">Zamboanga del Sur</option>
+                                    <option value="Zamboanga Sibugay">Zamboanga Sibugay</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="zip" class="required">ZIP Code</label>
+                                <input type="text" id="zip" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="country" class="required">Country</label>
+                                <select id="country" required>
+                                    <option value="Philippines" selected>Philippines</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="address-checkbox">
+                            <input type="checkbox" id="sameAsBilling">
+                            <label for="sameAsBilling">My billing address is the same as my shipping address</label>
+                        </div>
+                    </div>
+                    
+                    <!-- Billing Address (Initially Hidden) -->
+                    <div class="checkout-section billing-address" style="display: none;">
+                        <h2>Billing Address</h2>
+                        <div class="form-group">
+                            <label for="billingAddress" class="required">Address</label>
+                            <input type="text" id="billingAddress" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="billingAddress2">Apartment, suite, etc. (optional)</label>
+                            <input type="text" id="billingAddress2">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="billingCity" class="required">City</label>
+                                <input type="text" id="billingCity" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="billingProvince" class="required">Province</label>
+                                <select id="billingProvince" required>
+                                    <option value="" selected disabled>Select Province</option>
+                                    <option value="Abra">Abra</option>
+                                    <option value="Agusan del Norte">Agusan del Norte</option>
+                                    <option value="Laguna">Laguna</option>
+                                    <option value="Metro Manila">Metro Manila</option>
+                                    <!-- Add other provinces as needed -->
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="billingZip" class="required">ZIP Code</label>
+                                <input type="text" id="billingZip" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="billingCountry" class="required">Country</label>
+                                <select id="billingCountry" required>
+                                    <option value="Philippines" selected>Philippines</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Shipping Method -->
+                    <div class="checkout-section">
+                        <h2>Shipping Method</h2>
+                        <div class="form-group">
+                            <div class="payment-method selected">
+                                <input type="radio" id="standardShipping" name="shippingMethod" checked>
+                                <div class="payment-method-details">
+                                    <label for="standardShipping">Standard Shipping (3-5 business days)</label>
+                                    <span>₱99.00</span>
+                                </div>
+                            </div>
+                            <div class="payment-method">
+                                <input type="radio" id="expressShipping" name="shippingMethod">
+                                <div class="payment-method-details">
+                                    <label for="expressShipping">Express Shipping (1-2 business days)</label>
+                                    <span>₱199.00</span>
+                                </div>
+                            </div>
+                            <div class="payment-method">
+                                <input type="radio" id="pickupInStore" name="shippingMethod">
+                                <div class="payment-method-details">
+                                    <label for="pickupInStore">Pickup In Store</label>
+                                    <span>Free</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Payment Information -->
+                    <div class="checkout-section">
+                        <h2>Payment Method</h2>
+                        <div class="payment-methods">
+                            <div class="payment-method selected">
+                                <input type="radio" id="creditCard" name="paymentMethod" checked>
+                                <div class="payment-method-details">
+                                    <label for="creditCard">Credit / Debit Card</label>
+                                    <div class="payment-icons">
+                                        <i class="fab fa-cc-visa"></i>
+                                        <i class="fab fa-cc-mastercard"></i>
+                                        <i class="fab fa-cc-amex"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="card-inputs active">
+                                <div class="form-group">
+                                    <label for="cardName" class="required">Name on Card</label>
+                                    <input type="text" id="cardName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cardNumber" class="required">Card Number</label>
+                                    <input type="text" id="cardNumber" placeholder="XXXX XXXX XXXX XXXX" required>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="expiryDate" class="required">Expiry Date</label>
+                                        <input type="text" id="expiryDate" placeholder="MM/YY" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cvv" class="required">CVV</label>
+                                        <input type="text" id="cvv" placeholder="XXX" required>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="payment-method">
+                                <input type="radio" id="paypal" name="paymentMethod">
+                                <div class="payment-method-details">
+                                    <label for="paypal">PayPal</label>
+                                    <div class="payment-icons">
+                                        <i class="fab fa-paypal"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="payment-method">
+                                <input type="radio" id="gcash" name="paymentMethod">
+                                <div class="payment-method-details">
+                                    <label for="gcash">GCash</label>
+                                    <div class="payment-icons">
+                                        <i class="fas fa-mobile-alt"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="payment-method">
+                                <input type="radio" id="cod" name="paymentMethod">
+                                <div class="payment-method-details">
+                                    <label for="cod">Cash on Delivery</label>
+                                    <div class="payment-icons">
+                                        <i class="fas fa-money-bill-wave"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Order Notes -->
+                    <div class="checkout-section">
+                        <h2>Additional Information</h2>
+                        <div class="form-group">
+                            <label for="orderNotes">Order Notes (Optional)</label>
+                            <textarea id="orderNotes" rows="4" placeholder="Special instructions for delivery or any other notes..."></textarea>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Order Summary -->
+                <div class="checkout-summary">
+                    <div class="checkout-section">
+                        <h2>Order Summary</h2>
+                        <div class="order-items">
+                            <div class="order-item">
+                                <div class="order-item-image">
+                                    <img src="https://s.alicdn.com/@sc04/kf/H424c0ec9e82d43e3a777fd58c397453cC.jpg_720x720q50.jpg" alt="UltraPhone Pro 13">
+                                </div>
+                                <div class="order-item-details">
+                                    <div class="order-item-name">UltraPhone Pro 13</div>
+                                    <div class="order-item-meta">Color: Black, Storage: 256GB</div>
+                                    <div class="order-item-price">₱899.99 × 1</div>
+                                </div>
+                            </div>
+                            <div class="order-item">
+                                <div class="order-item-image">
+                                    <img src="https://gutostore.com/cdn/shop/files/Sddcca517489f4e4c99a4d2408d4646177_394x.webp?v=1745329711" alt="SonicWave Pro Headphones">
+                                </div>
+                                <div class="order-item-details">
+                                    <div class="order-item-name">SonicWave Pro Headphones</div>
+                                    <div class="order-item-meta">Color: Blue</div>
+                                    <div class="order-item-price">₱249.99 × 1</div>
+                                </div>
+                            </div>
+                            <div class="order-item">
+                                <div class="order-item-image">
+                                    <img src="https://image.made-in-china.com/2f0j00uDTfVsZgHBke/Fashion-X2-Plus-Smart-Watch-Waterproof-IP68-Heart-Rate-Monitor-Blood-Pressure-Pedometer-Sport-Smartwatch-X2-.jpg" alt="FitTech Smart Watch X2">
+                                </div>
+                                <div class="order-item-details">
+                                    <div class="order-item-name">FitTech Smart Watch X2</div>
+                                    <div class="order-item-meta">Color: Black</div>
+                                    <div class="order-item-price">₱179.99 × 1</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="summary-row">
+                            <span>Subtotal</span>
+                            <span>₱1,329.97</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Shipping</span>
+                            <span>₱99.00</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Tax</span>
+                            <span>₱159.60</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Total</span>
+                            <span>₱1,588.57</span>
+                        </div>
+                        <button class="place-order-btn">Place Order</button>
+                        
+                        <div class="accepted-payments">
+                            <p>We Accept</p>
+                            <div class="payment-icons-list">
+                                <i class="fab fa-cc-visa"></i>
+                                <i class="fab fa-cc-mastercard"></i>
+                                <i class="fab fa-cc-amex"></i>
+                                <i class="fab fa-cc-paypal"></i>
+                                <i class="fab fa-cc-discover"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="secure-checkout">
+                            <i class="fas fa-lock"></i>
+                            <span>Secure Checkout</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recommended Products Section -->
+    <section class="recommended-products">
+        <div class="container">
+            <h2 class="recommended-title">You Might Also Like</h2><br>
+            <div class="product-grid">
+                <!-- Product Card 1 -->
+                <div class="product-card">
+                    <div class="product-badge">New</div>
+                    <div class="product-image">
+                        <img src="https://images.gmanews.tv/webpics/2021/10/Apple_Macbook_Pro_2021_10_19_17_09_32.jpg" alt="MacBook Pro">
+                        <div class="product-actions">
+                            <button class="btn-icon"><i class="fas fa-heart"></i></button>
+                            <button class="btn-icon"><i class="fas fa-shopping-cart"></i></button>
+                            <button class="btn-icon"><i class="fas fa-eye"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">MacBook Pro</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(95)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">₱1,299.99</span>
+                            <span class="old-price">₱1,499.99</span>
+                        </div>
+                        <a class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="product-card">
+                    <div class="product-badge sale">Sale</div>
+                    <div class="product-image">
+                        <img src="https://www.yugatech.com/wp-content/uploads/2021/01/smart-home-devices-philippines-yugatech.jpg" alt="Smart Home Hub">
+                        <div class="product-actions">
+                            <button class="btn-icon"><i class="fas fa-heart"></i></button>
+                            <button class="btn-icon"><i class="fas fa-shopping-cart"></i></button>
+                            <button class="btn-icon"><i class="fas fa-eye"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Smart Home Hub Pro</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(63)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">₱149.99</span>
+                            <span class="old-price">₱199.99</span>
+                        </div>
+                        <a class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://www.superprof.ca/blog/wp-content/uploads/2018/07/photography-accessories-874x700.jpg" alt="Camera Lens">
+                        <div class="product-actions">
+                            <button class="btn-icon"><i class="fas fa-heart"></i></button>
+                            <button class="btn-icon"><i class="fas fa-shopping-cart"></i></button>
+                            <button class="btn-icon"><i class="fas fa-eye"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Pro DSLR Camera Lens</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(47)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">₱399.99</span>
+                        </div>
+                        <a class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+
+                <!-- Product Card 4 -->
+                <div class="product-card">
+                    <div class="product-badge">Bestseller</div>
+                    <div class="product-image">
+                        <img src="https://lh7-us.googleusercontent.com/K6wkObFLQCVMML42hYUUwFzWQCE9Ypv3OQTqqG4hVac2QV1y7MWEU0PdPtNfJltDTrHRE3Xh3EYXqQXqmA4GX1gGGA291OmOZZZZjAl8AdhQvfoid9rMEmz1SXD_PA1sdk62WbOQkCz-Uz6advXVJqw" alt="Fitness Tracker">
+                        <div class="product-actions">
+                            <button class="btn-icon"><i class="fas fa-heart"></i></button>
+                            <button class="btn-icon"><i class="fas fa-shopping-cart"></i></button>
+                            <button class="btn-icon"><i class="fas fa-eye"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Ultra Fitness Tracker</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(132)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">₱129.99</span>
+                            <span class="old-price">₱149.99</span>
+                        </div>
+                        <a class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div><br><br>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Subscribe to Our Newsletter</h2>
+                <p>Get the latest updates on new products, special offers, and tech news.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <h2>TechGadgetHub</h2>
+                    </div>
+                    <p>Your ultimate destination for the latest and greatest in tech gadgets. Quality products, competitive prices, and exceptional service.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">All Products</a></li>
+                        <li><a href="deals.html">Deals</a></li>
+                        <li><a href="new-arrivals.html">New Arrivals</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="categories/smartphones.html">Smartphones</a></li>
+                        <li><a href="categories/laptops.html">Laptops & Computers</a></li>
+                        <li><a href="categories/audio.html">Audio Devices</a></li>
+                        <li><a href="categories/smart-home.html">Smart Home</a></li>
+                        <li><a href="categories/wearables.html">Wearables</a></li>
+                        <li><a href="categories/photography.html">Photography</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Help & Info</h3>
+                    <ul class="footer-links">
+                        <li><a href="shipping.html">Shipping Information</a></li>
+                        <li><a href="returns.html">Returns & Exchanges</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                        <li><a href="sitemap.html">Site Map</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Pamantasan ng Cabuyao, Katapatan Homes, Brgy. Banay-banay, Cabuyao City, Laguna</li>
+                        <li><i class="fas fa-phone"></i> (+63) 951 602 1107</li>
+                        <li><i class="fas fa-envelope"></i> techgadgethub@gmail.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 9AM-6PM, Sat: 10AM-4PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2025 TechGadgetHub. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Back to Top Button
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                document.getElementById('backToTop').style.display = "block";
+            } else {
+                document.getElementById('backToTop').style.display = "none";
+            }
+        });
+
+        document.getElementById('backToTop').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        });
+
+        // Billing Address Toggle
+        document.getElementById('sameAsBilling').addEventListener('change', function() {
+            const billingAddressSection = document.querySelector('.billing-address');
+            
+            if (this.checked) {
+                billingAddressSection.style.display = 'none';
+            } else {
+                billingAddressSection.style.display = 'block';
+            }
+        });
+
+        // Payment Method Selection
+        const paymentMethods = document.querySelectorAll('.payment-method');
+        const cardInputs = document.querySelector('.card-inputs');
+
+        paymentMethods.forEach(method => {
+            method.addEventListener('click', function() {
+                // Remove selected class from all payment methods
+                paymentMethods.forEach(m => m.classList.remove('selected'));
+                
+                // Add selected class to clicked payment method
+                this.classList.add('selected');
+                
+                // Check the radio button
+                const radioBtn = this.querySelector('input[type="radio"]');
+                radioBtn.checked = true;
+                
+                // Show/hide card inputs
+                if (radioBtn.id === 'creditCard') {
+                    cardInputs.classList.add('active');
+                } else {
+                    cardInputs.classList.remove('active');
+                }
+            });
+        });
+
+        // Shipping Method Selection
+        const shippingMethods = document.querySelectorAll('input[name="shippingMethod"]');
+        
+        shippingMethods.forEach(method => {
+            method.addEventListener('change', function() {
+                // Update total based on shipping method
+                const shippingCost = this.id === 'standardShipping' ? 99 : 
+                                    this.id === 'expressShipping' ? 199 : 0;
+                
+                document.querySelector('.summary-row:nth-child(2) span:last-child').textContent = 
+                    shippingCost > 0 ? `₱${shippingCost.toFixed(2)}` : 'Free';
+                
+                // Recalculate total
+                updateOrderTotal();
+            });
+        });
+
+        // Form Validation
+        document.querySelector('.place-order-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Basic validation (would be more robust in production)
+            const requiredFields = document.querySelectorAll('input[required], select[required]');
+            let isValid = true;
+            
+            requiredFields.forEach(field => {
+                if (!field.value) {
+                    isValid = false;
+                    field.style.borderColor = '#e74c3c';
+                } else {
+                    field.style.borderColor = '#ddd';
+                }
+            });
+            
+            if (isValid) {
+                // Simulate order processing
+                this.textContent = 'Processing...';
+                this.disabled = true;
+                
+                // Redirect to order confirmation page after a delay
+                setTimeout(() => {
+                    window.location.href = 'order-confirmation.html';
+                }, 2000);
+            } else {
+                alert('Please fill out all required fields');
+                window.scrollTo({top: 0, behavior: 'smooth'});
+            }
+        });
+
+        // Helper function to update order total
+        function updateOrderTotal() {
+            const subtotal = 1329.97; // Hardcoded from cart
+            const shippingText = document.querySelector('.summary-row:nth-child(2) span:last-child').textContent;
+            const shipping = shippingText === 'Free' ? 0 : parseFloat(shippingText.replace('₱', ''));
+            const tax = subtotal * 0.12; // 12% tax rate
+            
+            const total = subtotal + shipping + tax;
+            
+            document.querySelector('.summary-row.total span:last-child').textContent = `₱${total.toFixed(2)}`;
+        }
+
+        // Format credit card input
+        const cardNumberInput = document.getElementById('cardNumber');
+        cardNumberInput.addEventListener('input', function(e) {
+            let value = this.value.replace(/\D/g, '');
+            if (value.length > 16) {
+                value = value.substr(0, 16);
+            }
+            
+            // Format with spaces every 4 digits
+            let formattedValue = '';
+            for (let i = 0; i < value.length; i++) {
+                if (i > 0 && i % 4 === 0) {
+                    formattedValue += ' ';
+                }
+                formattedValue += value[i];
+            }
+            
+            this.value = formattedValue;
+        });
+
+        // Format expiry date input
+        const expiryDateInput = document.getElementById('expiryDate');
+        expiryDateInput.addEventListener('input', function(e) {
+            let value = this.value.replace(/\D/g, '');
+            if (value.length > 4) {
+                value = value.substr(0, 4);
+            }
+            
+            // Format as MM/YY
+            if (value.length > 2) {
+                this.value = value.substr(0, 2) + '/' + value.substr(2);
+            } else {
+                this.value = value;
+            }
+        });
+
+        // Format CVV input
+        const cvvInput = document.getElementById('cvv');
+        cvvInput.addEventListener('input', function(e) {
+            let value = this.value.replace(/\D/g, '');
+            if (value.length > 3) {
+                value = value.substr(0, 3);
+            }
+            this.value = value;
+        });
+    </script>
+</body>
+</html>
