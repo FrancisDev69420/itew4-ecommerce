@@ -1499,9 +1499,10 @@ footer {
 /* Products Grid */
 .products-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: var(--spacing-lg);
     margin-top: var(--spacing-xl);
+    justify-items: center; /* Center items in their grid cells */
 }
 
 /* Product Item */
@@ -1513,6 +1514,8 @@ footer {
     text-align: center;
     box-shadow: var(--shadow-sm);
     transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    max-width: 300px; /* Prevents stretching when only one item is visible */
+    width: 100%;
 }
 
 .product-item:hover {
@@ -1710,5 +1713,452 @@ footer {
     .contact-info,
     .contact-form {
         min-width: 100%;
+    }
+}
+
+ .shipping-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.shipping-section {
+    margin-bottom: 3rem;
+}
+
+.shipping-section h2 {
+    color: #333;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+.shipping-methods {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.shipping-method-card {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.shipping-method-card h3 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+.shipping-method-card p {
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.shipping-faq {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+.faq-item {
+    margin-bottom: 1.5rem;
+}
+
+.faq-question {
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.faq-answer {
+    color: #666;
+    line-height: 1.6;
+}
+
+.shipping-notice {
+    background: #ebc8c8;
+    padding: 1rem;
+    border-radius: 4px;
+    margin: 2rem 0;
+}
+
+.shipping-notice i {
+    color: var(--error-color);
+    margin-right: 0.5rem;
+}
+
+/* Returns Page Styles */
+.returns-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.returns-section {
+    margin-bottom: 3rem;
+}
+
+.returns-section h2 {
+    color: #333;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+.return-policy-card {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+.return-policy-card h3 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+.return-policy-card p {
+    color: #666;
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+.return-policy-card ul {
+    list-style-type: disc;
+    margin-left: 1.5rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+.return-policy-card ul li {
+    margin-bottom: 0.5rem;
+}
+
+.return-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.step-card {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.step-number {
+    background: #2c3e50;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+}
+
+.returns-faq {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+.faq-item {
+    margin-bottom: 1.5rem;
+}
+
+.faq-question {
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.faq-answer {
+    color: #666;
+    line-height: 1.6;
+}
+
+.returns-notice {
+    background: #fff3cd;
+    padding: 1rem;
+    border-radius: 4px;
+    margin: 2rem 0;
+    border-left: 4px solid #ffc107;
+}
+
+.returns-notice i {
+    color: #856404;
+    margin-right: 0.5rem;
+}
+
+.ineligible-items {
+    background: #f8d7da;
+    padding: 1rem;
+    border-radius: 4px;
+    margin: 1rem 0;
+    border-left: 4px solid #dc3545;
+}
+
+.ineligible-items h4 {
+    color: #721c24;
+    margin-bottom: 0.5rem;
+}
+
+.ineligible-items ul {
+    list-style-type: disc;
+    margin-left: 1.5rem;
+    color: #721c24;
+}
+
+.ineligible-items ul li {
+    margin-bottom: 0.5rem;
+}
+
+.returns-faq ul {
+    list-style-type: disc;
+    margin-left: 1.5rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+.returns-faq ul li {
+    margin-bottom: 0.5rem;
+}
+
+/* FAQ Page Styles */
+.faq-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.faq-container h1 {
+    text-align: center;
+    color: var(--secondary-color);
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+}
+
+.faq-notice {
+    background: #e3f2fd;
+    padding: 1rem;
+    border-radius: 4px;
+    margin: 2rem 0;
+    border-left: 4px solid var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.faq-notice i {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+.faq-section {
+    margin-bottom: 3rem;
+}
+
+.faq-section h2 {
+    color: var(--secondary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.faq-card {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.faq-item {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.faq-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.faq-question {
+    font-weight: 600;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.faq-answer {
+    color: #666;
+    line-height: 1.6;
+}
+
+.faq-answer p {
+    margin-bottom: 1rem;
+}
+
+.faq-answer ul {
+    list-style-type: disc;
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.faq-answer ul li {
+    margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .faq-container {
+        padding: 1rem;
+    }
+
+    .faq-container h1 {
+        font-size: 2rem;
+    }
+
+    .faq-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .faq-question {
+        font-size: 1.1rem;
+    }
+}
+
+/* Privacy Policy, Terms & Conditions, and Site Map Styles */
+.privacy-container,
+.terms-container,
+.sitemap-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.privacy-container h1,
+.terms-container h1,
+.sitemap-container h1 {
+    color: #333;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.last-updated {
+    color: #666;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+.privacy-section,
+.terms-section,
+.sitemap-section {
+    margin-bottom: 2rem;
+}
+
+.privacy-section h2,
+.terms-section h2,
+.sitemap-section h2 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #eee;
+}
+
+.privacy-card,
+.terms-card,
+.sitemap-card {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+}
+
+.privacy-card h3,
+.terms-card h3 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.privacy-card p,
+.terms-card p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.privacy-card ul,
+.terms-card ul,
+.sitemap-card ul {
+    list-style-type: disc;
+    margin-left: 1.5rem;
+    color: #666;
+}
+
+.privacy-card ul li,
+.terms-card ul li,
+.sitemap-card ul li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+.privacy-card ul.contact-info,
+.terms-card ul.contact-info {
+    list-style-type: none;
+    margin-left: 0;
+}
+
+.privacy-card ul.contact-info li,
+.terms-card ul.contact-info li {
+    margin-bottom: 0.75rem;
+}
+
+.privacy-card ul.contact-info li i,
+.terms-card ul.contact-info li i {
+    color: #2c3e50;
+    margin-right: 0.5rem;
+    width: 20px;
+}
+
+.sitemap-card ul li a {
+    color: #2c3e50;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.sitemap-card ul li a:hover {
+    color: #3498db;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .privacy-container,
+    .terms-container,
+    .sitemap-container {
+        margin: 1rem auto;
+    }
+
+    .privacy-card,
+    .terms-card,
+    .sitemap-card {
+        padding: 1rem;
+    }
+
+    .privacy-section h2,
+    .terms-section h2,
+    .sitemap-section h2 {
+        font-size: 1.5rem;
     }
 }

@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deals - TechGadgetHub</title>
+    <title>Shipping Information - TechGadgetHub</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body>
     <!-- Header Section -->
     <header>
@@ -19,8 +19,8 @@
                     </a>
                 </div>
                 <div class="search-bar">
-                    <form action="products.html">
-                        <input type="text" placeholder="Search for deals..." name="query">
+                    <form id="search-form" action="products.html">
+                        <input id="product-search" type="text" placeholder="Search for gadgets..." name="query">
                         <button type="submit"><i class="fas fa-search"></i></button>
                     </form>
                 </div>
@@ -31,9 +31,9 @@
                     <div class="cart">
                         <a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart (0)</a>
                     </div>
-                </div>
-                <div class="mobile-menu-toggle">
-                    <i class="fas fa-bars"></i>
+                    <div class="mobile-menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </div>
                 </div>
             </div>
         </div>
@@ -45,7 +45,7 @@
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li class="dropdown">
-                    <a>Categories <i class="fas fa-chevron-down"></i></a>
+                    <a href="#">Categories <i class="fas fa-chevron-down"></i></a>
                     <div class="dropdown-content">
                         <a href="categories/smartphones.html">Smartphones</a>
                         <a href="categories/laptops.html">Laptops & Computers</a>
@@ -55,7 +55,7 @@
                         <a href="categories/photography.html">Photography</a>
                     </div>
                 </li>
-                <li><a href="deals.html" class="active">Deals</a></li>
+                <li><a href="deals.html">Deals</a></li>
                 <li><a href="new-arrivals.html">New Arrivals</a></li>
                 <li><a href="blog.html">Tech Blog</a></li>
                 <li><a href="about.html">About Us</a></li>
@@ -64,54 +64,74 @@
         </div>
     </nav>
 
-    <!-- Deals Section -->
-    <main>
-        <div class="container product-container">
-            <h2>Exclusive Deals</h2>
-            <p>Don't miss out on these amazing discounts! Limited time offers on our best-selling products.</p>
-            <div id="products-grid" class="products-grid">
-                <!-- Deal 1 -->
-                <div class="product-item" data-name="MacBook Pro">
-                    <div class="product-badge sale">Sale</div>
-                    <img src="https://images.gmanews.tv/webpics/2021/10/Apple_Macbook_Pro_2021_10_19_17_09_32.jpg" alt="MacBook Pro">
-                    <h3>MacBook Pro</h3>
-                    <p><span class="current-price">₱1,299.99</span> <span class="old-price">₱1,499.99</span></p>
-                    <a class="btn">View Details</a>
+    <!-- Main Content -->
+    <main class="shipping-container">
+        <h1>Shipping Information</h1>
+        
+        <div class="shipping-notice">
+            <i class="fas fa-info-circle"></i>
+            <strong>Important Notice:</strong> Due to high demand, some orders may experience slight delays. We appreciate your patience and understanding.
+        </div>
+
+        <section class="shipping-section">
+            <h2>Shipping Methods</h2>
+            <div class="shipping-methods">
+                <div class="shipping-method-card">
+                    <h3>Standard Shipping</h3>
+                    <p><strong>Delivery Time:</strong> 3-5 business days</p>
+                    <p><strong>Cost:</strong> Free for orders over ₱1,000</p>
+                    <p><strong>Tracking:</strong> Available</p>
                 </div>
-                <!-- Deal 2 -->
-                <div class="product-item" data-name="SonicWave Pro Headphones">
-                    <div class="product-badge sale">Sale</div>
-                    <img src="https://gutostore.com/cdn/shop/files/Sddcca517489f4e4c99a4d2408d4646177_394x.webp?v=1745329711" alt="SonicWave Pro Headphones">
-                    <h3>SonicWave Pro Headphones</h3>
-                    <p><span class="current-price">₱199.99</span> <span class="old-price">₱249.99</span></p>
-                    <a class="btn">View Details</a>
+                <div class="shipping-method-card">
+                    <h3>Express Shipping</h3>
+                    <p><strong>Delivery Time:</strong> 1-2 business days</p>
+                    <p><strong>Cost:</strong> ₱150</p>
+                    <p><strong>Tracking:</strong> Available</p>
                 </div>
-                <!-- Deal 3 -->
-                <div class="product-item" data-name="Smart Home Hub">
-                    <div class="product-badge sale">Sale</div>
-                    <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&fit=crop&w=300&q=80" alt="Smart Home Hub">
-                    <h3>Smart Home Hub</h3>
-                    <p><span class="current-price">₱249.99</span> <span class="old-price">₱299.99</span></p>
-                    <a class="btn">View Details</a>
-                </div>
-                <!-- Deal 4 -->
-                <div class="product-item" data-name="FitTech Smart Watch X2">
-                    <div class="product-badge sale">Sale</div>
-                    <img src="https://image.made-in-china.com/2f0j00uDTfVsZgHBke/Fashion-X2-Plus-Smart-Watch-Waterproof-IP68-Heart-Rate-Monitor-Blood-Pressure-Pedometer-Sport-Smartwatch-X2-.jpg" alt="FitTech Smart Watch X2">
-                    <h3>FitTech Smart Watch X2</h3>
-                    <p><span class="current-price">₱149.99</span> <span class="old-price">₱179.99</span></p>
-                    <a class="btn">View Details</a>
-                </div>
-                <!-- Deal 5 -->
-                <div class="product-item" data-name="UltraPhone Pro 13">
-                    <div class="product-badge sale">Sale</div>
-                    <img src="https://s.alicdn.com/@sc04/kf/H424c0ec9e82d43e3a777fd58c397453cC.jpg_720x720q50.jpg" alt="UltraPhone Pro 13">
-                    <h3>UltraPhone Pro 13</h3>
-                    <p><span class="current-price">₱899.99</span> <span class="old-price">₱999.99</span></p>
-                    <a class="btn">View Details</a>
+                <div class="shipping-method-card">
+                    <h3>Same Day Delivery</h3>
+                    <p><strong>Delivery Time:</strong> Within 24 hours</p>
+                    <p><strong>Cost:</strong> ₱250</p>
+                    <p><strong>Tracking:</strong> Available</p>
+                    <p><em>*Available in selected areas only</em></p>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <section class="shipping-section">
+            <h2>Shipping Policies</h2>
+            <div class="shipping-faq">
+                <div class="faq-item">
+                    <div class="faq-question">How do I track my order?</div>
+                    <div class="faq-answer">
+                        Once your order is shipped, you'll receive a tracking number via email. You can track your package by clicking the tracking link in your shipping confirmation email or by visiting our tracking page.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What if my package is damaged?</div>
+                    <div class="faq-answer">
+                        If you receive a damaged package, please take photos of the damage and contact our customer service within 24 hours of delivery. We'll arrange for a replacement or refund.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Do you ship internationally?</div>
+                    <div class="faq-answer">
+                        Currently, we only ship within the Philippines. We're working on expanding our shipping services to other countries soon.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What are your shipping cut-off times?</div>
+                    <div class="faq-answer">
+                        Orders placed before 2:00 PM (Philippine Time) will be processed on the same day. Orders placed after 2:00 PM will be processed on the next business day.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="shipping-section">
+            <h2>Delivery Areas</h2>
+            <p>We currently deliver to all major cities and provinces in the Philippines. For remote areas, delivery times may vary. Please contact our customer service for specific delivery information to your location.</p>
+        </section>
     </main>
 
     <!-- Footer -->
@@ -142,17 +162,6 @@
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h3>Categories</h3>
-                    <ul class="footer-links">
-                        <li><a href="categories/smartphones.html">Smartphones</a></li>
-                        <li><a href="categories/laptops.html">Laptops & Computers</a></li>
-                        <li><a href="categories/audio.html">Audio Devices</a></li>
-                        <li><a href="categories/smart-home.html">Smart Home</a></li>
-                        <li><a href="categories/wearables.html">Wearables</a></li>
-                        <li><a href="categories/photography.html">Photography</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
                     <h3>Help & Info</h3>
                     <ul class="footer-links">
                         <li><a href="shipping.html">Shipping Information</a></li>
@@ -166,9 +175,9 @@
                 <div class="footer-column">
                     <h3>Contact Us</h3>
                     <ul class="contact-info">
-                        <li><i class="fas fa-map-marker-alt"></i> 123 Tech Street, Gadget City, TC 12345</li>
-                        <li><i class="fas fa-phone"></i> (123) 456-7890</li>
-                        <li><i class="fas fa-envelope"></i> support@techgadgethub.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Pamantasan ng Cabuyao, Katapatan Homes, Brgy. Banay-banay, Cabuyao City, Laguna</li>
+                        <li><i class="fas fa-phone"></i> (+63) 951 602 1107</li>
+                        <li><i class="fas fa-envelope"></i> techgadgethub@gmail.com</li>
                         <li><i class="fas fa-clock"></i> Mon-Fri: 9AM-6PM, Sat: 10AM-4PM</li>
                     </ul>
                 </div>
@@ -211,6 +220,5 @@
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </div>
-
 </body>
 </html>
