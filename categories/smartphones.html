@@ -64,29 +64,108 @@
         </div>
     </nav>
 
-    <!-- Smartphones Section -->
+    <!-- Products Section -->
     <main>
         <div class="container product-container">
             <h2>Smartphones</h2>
             <div id="products-grid" class="products-grid">
-                <!-- Smartphone 1 -->
-                <div class="product-item" data-name="UltraPhone Pro 13">
-                    <img src="https://s.alicdn.com/@sc04/kf/H424c0ec9e82d43e3a777fd58c397453cC.jpg_720x720q50.jpg" alt="UltraPhone Pro 13">
-                    <h3>UltraPhone Pro 13</h3>
-                    <p>₱899.99</p>
-                    <a class="btn">View Details</a>
+                <div class="product-card" data-product-id="ultra-phone-pro-13">
+                    <div class="product-badge">New</div>
+                    <div class="product-image">
+                        <img src="https://s.alicdn.com/@sc04/kf/H424c0ec9e82d43e3a777fd58c397453cC.jpg_720x720q50.jpg" alt="UltraPhone Pro 13">
+                        <div class="product-actions">
+                            <button class="btn-icon"><i class="fas fa-heart"></i></button>
+                            <button class="btn-icon"><i class="fas fa-shopping-cart"></i></button>
+                            <button class="btn-icon"><i class="fas fa-eye"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">UltraPhone Pro 13</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(128)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">₱899.99</span>
+                            <span class="old-price">₱999.99</span>
+                        </div>
+                        <button class="btn btn-primary">View Details</button>
+                    </div>
                 </div>
-                <!-- Smartphone 2 -->
-                <div class="product-item" data-name="Smartphone X">
-                    <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=300&q=80" alt="Smartphone X">
-                    <h3>Smartphone X</h3>
-                    <p>₱699.99</p>
-                    <a class="btn">View Details</a>
+
+                <div class="product-card" data-product-id="smartphone-x">
+                    <div class="product-badge sale">Sale</div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=300&q=80" alt="Smartphone X">
+                        <div class="product-actions">
+                            <button class="btn-icon"><i class="fas fa-heart"></i></button>
+                            <button class="btn-icon"><i class="fas fa-shopping-cart"></i></button>
+                            <button class="btn-icon"><i class="fas fa-eye"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Smartphone X</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(85)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">₱699.99</span>
+                            <span class="old-price">₱799.99</span>
+                        </div>
+                        <button class="btn btn-primary">View Details</button>
+                    </div>
                 </div>
-                
+
+                <!-- Add more smartphone products here -->
             </div>
         </div>
     </main>
+
+    <!-- Product Details Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <div class="product-modal-image">
+                    <img src="" alt="Product Image" id="modalProductImage">
+                </div>
+                <div class="product-modal-details">
+                    <h2 id="modalProductTitle"></h2>
+                    <div class="product-modal-rating" id="modalProductRating"></div>
+                    <div class="product-modal-price">
+                        <span id="modalCurrentPrice"></span>
+                        <span id="modalOldPrice"></span>
+                    </div>
+                    <div class="product-modal-description">
+                        <h3>Description</h3>
+                        <p id="modalProductDescription"></p>
+                    </div>
+                    <div class="product-modal-specs">
+                        <h3>Specifications</h3>
+                        <ul id="modalProductSpecs"></ul>
+                    </div>
+                    <div class="product-modal-actions">
+                        <div class="quantity-selector">
+                            <button class="quantity-btn minus">-</button>
+                            <input type="number" value="1" min="1" id="modalQuantity">
+                            <button class="quantity-btn plus">+</button>
+                        </div>
+                        <button class="btn btn-primary add-to-cart">Add to Cart</button>
+                        <button class="btn btn-outline wishlist-btn"><i class="fas fa-heart"></i> Add to Wishlist</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer>
@@ -162,6 +241,7 @@
 
     <!-- JavaScript Files -->
     <script src="../main.js"></script>
+    <script src="../cart.js"></script>
 
     <!-- Mobile Menu -->
     <div class="mobile-menu">

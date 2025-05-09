@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wearables - TechGadgetHub</title>
-    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../styles.css"> 
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -161,13 +161,50 @@
         </div>
     </footer>
 
+    <!-- Product Details Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <div class="product-modal-image">
+                    <img src="" alt="Product Image" id="modalProductImage">
+                </div>
+                <div class="product-modal-details">
+                    <h2 id="modalProductTitle"></h2>
+                    <div class="product-modal-rating" id="modalProductRating"></div>
+                    <div class="product-modal-price">
+                        <span id="modalCurrentPrice"></span>
+                        <span id="modalOldPrice"></span>
+                    </div>
+                    <div class="product-modal-description">
+                        <h3>Description</h3>
+                        <p id="modalProductDescription"></p>
+                    </div>
+                    <div class="product-modal-specs">
+                        <h3>Specifications</h3>
+                        <ul id="modalProductSpecs"></ul>
+                    </div>
+                    <div class="product-modal-actions">
+                        <div class="quantity-selector">
+                            <button class="quantity-btn minus">-</button>
+                            <input type="number" value="1" min="1" id="modalQuantity">
+                            <button class="quantity-btn plus">+</button>
+                        </div>
+                        <button class="btn btn-primary add-to-cart">Add to Cart</button>
+                        <button class="btn btn-outline wishlist-btn"><i class="fas fa-heart"></i> Add to Wishlist</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Back to Top Button -->
     <a href="#" class="back-to-top" id="backToTop">
         <i class="fas fa-arrow-up"></i>
     </a>
 
     <!-- JavaScript Files -->
-    <script src="../../main.js"></script>
+    <script src="../main.js"></script>
 
     <!-- Mobile Menu -->
     <div class="mobile-menu">

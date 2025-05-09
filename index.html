@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TechGadgetHub - Your ultimate destination for the latest tech gadgets, smartphones, laptops, audio devices, and more. Shop now for the best deals!">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <title>TechGadgetHub - Your Ultimate Gadget Store</title>
     <link rel="stylesheet" href="styles.css">
     <!-- Font Awesome for icons -->
@@ -21,20 +23,20 @@
                 </div>
                 <div class="search-bar">
                     <form id="search-form" action="products.html">
-                        <input id="product-search" type="text" placeholder="Search for gadgets..." name="query">
-                        <button type="submit"><i class="fas fa-search"></i></button>
+                        <input id="product-search" type="text" placeholder="Search for gadgets..." name="query" aria-label="Search products">
+                        <button type="submit" aria-label="Search"><i class="fas fa-search"></i></button>
                     </form>
                 </div>
                 <div class="header-actions">
                     <div class="account">
-                        <a href="account/login.html"><i class="fas fa-user"></i> Account</a>
+                        <a href="account/login.html" aria-label="Account"><i class="fas fa-user"></i> Account</a>
                     </div>
                     <div class="cart">
-                        <a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart (3)</a>
+                        <a href="cart.html" aria-label="Shopping Cart"><i class="fas fa-shopping-cart"></i> Cart (3)</a>
                     </div>
                 </div>
                 <div class="mobile-menu-toggle">
-                    <i class="fas fa-bars"></i>
+                    <button aria-label="Toggle mobile menu"><i class="fas fa-bars"></i></button>
                 </div>
             </div>
         </div>
@@ -46,7 +48,7 @@
             <ul class="nav-links">
                 <li><a href="index.html" class="active">Home</a></li>
                 <li class="dropdown">
-                    <a >Categories <i class="fas fa-chevron-down"></i></a>
+                    <a href="#">Categories <i class="fas fa-chevron-down"></i></a>
                     <div class="dropdown-content">
                         <a href="categories/smartphones.html">Smartphones</a>
                         <a href="categories/laptops.html">Laptops & Computers</a>
@@ -155,7 +157,7 @@
             <h2 class="section-title">Featured Products</h2>
             <div class="product-grid">
                 <!-- Product Card 1 -->
-                <div class="product-card">
+                <div class="product-card" data-product-id="ultraphone-pro-13">
                     <div class="product-badge">New</div>
                     <div class="product-image">
                         <img src="https://s.alicdn.com/@sc04/kf/H424c0ec9e82d43e3a777fd58c397453cC.jpg_720x720q50.jpg" alt="Latest Smartphone">
@@ -179,12 +181,12 @@
                             <span class="current-price">₱899.99</span>
                             <span class="old-price">₱999.99</span>
                         </div>
-                        <a class="btn btn-primary">View Details</a>
+                        <button class="btn btn-primary">View Details</button>
                     </div>
                 </div>
 
                 <!-- Product Card 2 -->
-                <div class="product-card">
+                <div class="product-card" data-product-id="macbook-pro">
                     <div class="product-badge sale">Sale</div>
                     <div class="product-image">
                         <img src="https://images.gmanews.tv/webpics/2021/10/Apple_Macbook_Pro_2021_10_19_17_09_32.jpg" alt="Gaming Laptop">
@@ -208,12 +210,12 @@
                             <span class="current-price">₱1,299.99</span>
                             <span class="old-price">₱1,499.99</span>
                         </div>
-                        <a class="btn btn-primary">View Details</a>
+                        <button class="btn btn-primary">View Details</button>
                     </div>
                 </div>
 
                 <!-- Product Card 3 -->
-                <div class="product-card">
+                <div class="product-card" data-product-id="sonicwave-pro">
                     <div class="product-image">
                         <img src="https://gutostore.com/cdn/shop/files/Sddcca517489f4e4c99a4d2408d4646177_394x.webp?v=1745329711" alt="Wireless Headphones">
                         <div class="product-actions">
@@ -235,12 +237,12 @@
                         <div class="product-price">
                             <span class="current-price">₱249.99</span>
                         </div>
-                        <a class="btn btn-primary">View Details</a>
+                        <button class="btn btn-primary">View Details</button>
                     </div>
                 </div>
 
                 <!-- Product Card 4 -->
-                <div class="product-card">
+                <div class="product-card" data-product-id="fittech-watch">
                     <div class="product-badge">Bestseller</div>
                     <div class="product-image">
                         <img src="https://image.made-in-china.com/2f0j00uDTfVsZgHBke/Fashion-X2-Plus-Smart-Watch-Waterproof-IP68-Heart-Rate-Monitor-Blood-Pressure-Pedometer-Sport-Smartwatch-X2-.jpg" alt="Smart Watch">
@@ -264,7 +266,7 @@
                             <span class="current-price">₱179.99</span>
                             <span class="old-price">₱199.99</span>
                         </div>
-                        <a class="btn btn-primary">View Details</a>
+                        <button class="btn btn-primary">View Details</button>
                     </div>
                 </div>
             </div>
@@ -299,7 +301,7 @@
                         <div class="blog-date">May 1, 2025</div>
                         <h3>The Future of Smartphones in 2026</h3>
                         <p>Explore the upcoming features and innovations expected in next-generation smartphones.</p>
-                        <a href="https://www.quora.com/What-will-smartphones-be-like-in-2026" class="read-more" target="_blank">Read More <i class="fas fa-arrow-right"></i></a>
+                        <a href="blog/smartphones-2026.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="blog-card">
@@ -310,7 +312,7 @@
                         <div class="blog-date">April 25, 2025</div>
                         <h3>Ultimate Smart Home Setup Guide</h3>
                         <p>Learn how to create the perfect smart home ecosystem with compatible devices.</p>
-                        <a href="https://www.youtube.com/watch?v=WHXYlEB_QmY" class="read-more" target="_blank">Read More <i class="fas fa-arrow-right"></i></a>
+                        <a href="blog/smart-home-guide.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="blog-card">
@@ -321,7 +323,7 @@
                         <div class="blog-date">April 18, 2025</div>
                         <h3>How AI is Transforming Consumer Technology</h3>
                         <p>Discover the impact of artificial intelligence on everyday gadgets and devices.</p>
-                        <a href="https://www.bloomreach.com/en/blog/how-ai-technology-will-transform-customer-engagement#:~:text=AI%2Dpowered%20chatbots%20and%20virtual%20assistants%20are%20revolutionizing%20customer%20service,focus%20on%20more%20complex%20tasks." class="read-more" target="_blank">Read More <i class="fas fa-arrow-right"></i></a>
+                        <a href="blog/ai-technology.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -417,8 +419,46 @@
         <i class="fas fa-arrow-up"></i>
     </a>
 
+    <!-- Product Details Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <div class="product-modal-image">
+                    <img src="" alt="Product Image" id="modalProductImage">
+                </div>
+                <div class="product-modal-details">
+                    <h2 id="modalProductTitle"></h2>
+                    <div class="product-modal-rating" id="modalProductRating"></div>
+                    <div class="product-modal-price">
+                        <span id="modalCurrentPrice"></span>
+                        <span id="modalOldPrice"></span>
+                    </div>
+                    <div class="product-modal-description">
+                        <h3>Description</h3>
+                        <p id="modalProductDescription"></p>
+                    </div>
+                    <div class="product-modal-specs">
+                        <h3>Specifications</h3>
+                        <ul id="modalProductSpecs"></ul>
+                    </div>
+                    <div class="product-modal-actions">
+                        <div class="quantity-selector">
+                            <button class="quantity-btn minus">-</button>
+                            <input type="number" value="1" min="1" id="modalQuantity">
+                            <button class="quantity-btn plus">+</button>
+                        </div>
+                        <button class="btn btn-primary add-to-cart">Add to Cart</button>
+                        <button class="btn btn-outline wishlist-btn"><i class="fas fa-heart"></i> Add to Wishlist</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- JavaScript Files -->
     <script src="main.js"></script>
+    <script src="cart.js"></script>
 
     <!-- Mobile Menu -->
     <div class="mobile-menu">

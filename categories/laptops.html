@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laptops & Computers - TechGadgetHub</title>
-    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../styles.css">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -70,18 +70,60 @@
             <h2>Laptops & Computers</h2>
             <div id="products-grid" class="products-grid">
                 <!-- Laptop 1 -->
-                <div class="product-item" data-name="Laptop Pro">
-                    <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=300&q=80" alt="Laptop Pro">
-                    <h3>Laptop Pro</h3>
-                    <p>₱1,299.99</p>
-                    <a class="btn">View Details</a>
+                <div class="product-card" data-product-id="laptop-pro">
+                    <div class="product-badge">New</div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=300&q=80" alt="Laptop Pro">
+                        <div class="product-actions">
+                            <button class="btn-icon"><i class="fas fa-heart"></i></button>
+                            <button class="btn-icon"><i class="fas fa-shopping-cart"></i></button>
+                            <button class="btn-icon"><i class="fas fa-eye"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Laptop Pro</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(95)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">₱1,299.99</span>
+                            <span class="old-price">₱1,499.99</span>
+                        </div>
+                        <button class="btn btn-primary">View Details</button>
+                    </div>
                 </div>
                 <!-- Laptop 2 -->
-                <div class="product-item" data-name="MacBook Pro">
-                    <img src="https://images.gmanews.tv/webpics/2021/10/Apple_Macbook_Pro_2021_10_19_17_09_32.jpg" alt="MacBook Pro">
-                    <h3>MacBook Pro</h3>
-                    <p>₱1,299.99</p>
-                    <a class="btn">View Details</a>
+                <div class="product-card" data-product-id="macbook-pro">
+                    <div class="product-badge sale">Sale</div>
+                    <div class="product-image">
+                        <img src="https://images.gmanews.tv/webpics/2021/10/Apple_Macbook_Pro_2021_10_19_17_09_32.jpg" alt="MacBook Pro">
+                        <div class="product-actions">
+                            <button class="btn-icon"><i class="fas fa-heart"></i></button>
+                            <button class="btn-icon"><i class="fas fa-shopping-cart"></i></button>
+                            <button class="btn-icon"><i class="fas fa-eye"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">MacBook Pro</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(128)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">₱1,299.99</span>
+                            <span class="old-price">₱1,399.99</span>
+                        </div>
+                        <button class="btn btn-primary">View Details</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -154,13 +196,50 @@
         </div>
     </footer>
 
+    <!-- Product Details Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <div class="product-modal-image">
+                    <img src="" alt="Product Image" id="modalProductImage">
+                </div>
+                <div class="product-modal-details">
+                    <h2 id="modalProductTitle"></h2>
+                    <div class="product-modal-rating" id="modalProductRating"></div>
+                    <div class="product-modal-price">
+                        <span id="modalCurrentPrice"></span>
+                        <span id="modalOldPrice"></span>
+                    </div>
+                    <div class="product-modal-description">
+                        <h3>Description</h3>
+                        <p id="modalProductDescription"></p>
+                    </div>
+                    <div class="product-modal-specs">
+                        <h3>Specifications</h3>
+                        <ul id="modalProductSpecs"></ul>
+                    </div>
+                    <div class="product-modal-actions">
+                        <div class="quantity-selector">
+                            <button class="quantity-btn minus">-</button>
+                            <input type="number" value="1" min="1" id="modalQuantity">
+                            <button class="quantity-btn plus">+</button>
+                        </div>
+                        <button class="btn btn-primary add-to-cart">Add to Cart</button>
+                        <button class="btn btn-outline wishlist-btn"><i class="fas fa-heart"></i> Add to Wishlist</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Back to Top Button -->
     <a href="#" class="back-to-top" id="backToTop">
         <i class="fas fa-arrow-up"></i>
     </a>
 
     <!-- JavaScript Files -->
-    <script src="../../main.js"></script>
+    <script src="../main.js"></script>
 
     <!-- Mobile Menu -->
     <div class="mobile-menu">

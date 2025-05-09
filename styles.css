@@ -607,6 +607,11 @@ search-bar button:hover {
     box-shadow: var(--shadow-sm);
     transition: box-shadow var(--transition-normal);
     position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+    height: 450px;
 }
 
 .product-card:hover {
@@ -633,13 +638,19 @@ search-bar button:hover {
 .product-image {
     position: relative;
     overflow: hidden;
-    height: 220px;
+    height: 200px;
+    width: 100%;
+    background-color: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .product-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    padding: 1rem;
     transition: transform var(--transition-normal);
 }
 
@@ -667,18 +678,31 @@ search-bar button:hover {
 .product-info {
     padding: var(--spacing-md);
     text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .product-title {
     font-size: var(--font-size-lg);
     font-weight: 600;
     margin-bottom: var(--spacing-sm);
-    color: var (--secondary-color);
+    color: var(--secondary-color);
+    height: 2.5em;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .product-rating {
     color: #f39c12;
     margin-bottom: var(--spacing-sm);
+    height: 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .product-rating span {
@@ -689,6 +713,10 @@ search-bar button:hover {
 
 .product-price {
     margin-bottom: var(--spacing-md);
+    height: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .current-price {
@@ -699,9 +727,14 @@ search-bar button:hover {
 
 .old-price {
     font-size: var(--font-size-sm);
-    color: var (--text-muted);
+    color: var(--text-muted);
     text-decoration: line-through;
     margin-left: var(--spacing-sm);
+}
+
+.product-info .btn {
+    margin-top: auto;
+    width: 100%;
 }
 
 /* ---------- SPECIAL OFFER BANNER ---------- */
@@ -1499,10 +1532,10 @@ footer {
 /* Products Grid */
 .products-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: var(--spacing-lg);
     margin-top: var(--spacing-xl);
-    justify-items: center; /* Center items in their grid cells */
+    justify-items: center;
 }
 
 /* Product Item */
@@ -2893,4 +2926,184 @@ footer {
 }
 .action-buttons .btn {
     padding: 12px 30px;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fff;
+    margin: 50px auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 1000px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.close-modal {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #666;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-modal:hover {
+    color: #333;
+}
+
+.modal-body {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.product-modal-image {
+    flex: 1;
+    max-width: 400px;
+}
+
+.product-modal-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.product-modal-details {
+    flex: 1;
+    padding: 20px 0;
+}
+
+.product-modal-details h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.product-modal-rating {
+    margin-bottom: 15px;
+}
+
+.product-modal-price {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.product-modal-price .current-price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.product-modal-price .old-price {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.product-modal-description,
+.product-modal-specs {
+    margin-bottom: 20px;
+}
+
+.product-modal-description h3,
+.product-modal-specs h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.product-modal-specs ul {
+    list-style: none;
+    padding: 0;
+}
+
+.product-modal-specs li {
+    margin-bottom: 8px;
+    color: #666;
+}
+
+.product-modal-actions {
+    margin-top: 30px;
+}
+
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.quantity-btn {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ddd;
+    background: #f8f9fa;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.quantity-btn:hover {
+    background: #e9ecef;
+}
+
+#modalQuantity {
+    width: 50px;
+    height: 30px;
+    text-align: center;
+    border: 1px solid #ddd;
+    margin: 0 10px;
+}
+
+.add-to-cart,
+.wishlist-btn {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+/* Responsive Modal */
+@media (max-width: 768px) {
+    .modal-body {
+        flex-direction: column;
+    }
+
+    .product-modal-image {
+        max-width: 100%;
+    }
+
+    .modal-content {
+        margin: 20px auto;
+        width: 95%;
+    }
 }
