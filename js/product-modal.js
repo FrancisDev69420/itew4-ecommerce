@@ -274,6 +274,125 @@ const productData = {
         ],
         rating: 4.5,
         reviews: 110
+    },
+    'gaming-headset': {
+        image: 'https://images.unsplash.com/photo-1629429407756-4a7703614972?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        price: '₱149.99',
+        description: 'Professional gaming headset with immersive sound and crystal-clear communication.',
+        specs: [
+            '7.1 surround sound',
+            'Noise-cancelling microphone',
+            'Memory foam ear cushions',
+            'RGB lighting',
+            'Compatible with PC, PS4, PS5, Xbox'
+        ],
+        rating: 4.2,
+        reviews: 52
+    },
+    '4k-camera': {
+        image: 'https://images.unsplash.com/photo-1675011718475-f257cb602a28?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        price: '₱499.99',
+        oldPrice: '₱599.99',
+        description: 'Professional 4K camera with advanced features for stunning video recording.',
+        specs: [
+            '4K Ultra HD recording',
+            '20MP sensor',
+            '5-axis image stabilization',
+            'Wi-Fi connectivity',
+            'Touch screen display'
+        ],
+        rating: 4.5,
+        reviews: 85
+    },
+    'sonic-wave-pro-headphones': {
+        image: 'https://gutostore.com/cdn/shop/files/Sddcca517489f4e4c99a4d2408d4646177_394x.webp?v=1745329711',
+        price: '₱199.99',
+        oldPrice: '₱249.99',
+        description: 'Premium studio headphones with exceptional sound quality and comfort.',
+        specs: [
+            'Studio-grade sound',
+            'Active noise cancellation',
+            '40-hour battery life',
+            'Bluetooth 5.0',
+            'Memory foam ear cushions'
+        ],
+        rating: 4.5,
+        reviews: 85
+    },
+    'fit-tech-smart-watch-x2': {
+        image: 'https://image.made-in-china.com/2f0j00uDTfVsZgHBke/Fashion-X2-Plus-Smart-Watch-Waterproof-IP68-Heart-Rate-Monitor-Blood-Pressure-Pedometer-Sport-Smartwatch-X2-.jpg',
+        price: '₱149.99',
+        oldPrice: '₱199.99',
+        description: 'Advanced smartwatch with comprehensive health monitoring and fitness tracking.',
+        specs: [
+            'Heart rate monitoring',
+            'Blood pressure tracking',
+            'Water resistant (IP68)',
+            '7-day battery life',
+            'Smartphone notifications'
+        ],
+        rating: 4.5,
+        reviews: 85
+    },
+    'health-band-pro': {
+        image: 'https://i.guim.co.uk/img/static/sys-images/Guardian/Pix/pictures/2014/10/30/1414670779568/6ece9654-661a-452e-a5df-d890b2b1bd24-1020x612.jpeg?width=465&dpr=1&s=none&crop=none',
+        price: '₱99.99',
+        oldPrice: '₱129.99',
+        description: 'Advanced fitness band with comprehensive health tracking features.',
+        specs: [
+            'Heart rate monitoring',
+            'Sleep tracking',
+            'Step counter',
+            'Water resistant',
+            '14-day battery life'
+        ],
+        rating: 4.5,
+        reviews: 85
+    },
+    'smart-glasses': {
+        image: 'https://plus.unsplash.com/premium_photo-1733892954342-8c7944436b89?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        price: '₱249.99',
+        oldPrice: '₱299.99',
+        description: 'Smart glasses with augmented reality features and voice control.',
+        specs: [
+            'AR display',
+            'Voice control',
+            'Built-in camera',
+            'Bluetooth connectivity',
+            '8-hour battery life'
+        ],
+        rating: 4.5,
+        reviews: 85
+    },
+    'dslr-camera': {
+        image: 'https://images.unsplash.com/photo-1616423640778-28d1b53229bd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        price: '₱899.99',
+        oldPrice: '₱999.99',
+        description: 'Professional DSLR camera with advanced features for stunning photography.',
+        specs: [
+            '24.1MP sensor',
+            '4K video recording',
+            'Dual card slots',
+            'Weather sealed body',
+            'Advanced autofocus'
+        ],
+        rating: 4.5,
+        reviews: 85
+    },
+    'camera-lens-kit': {
+        image: 'https://images.unsplash.com/photo-1623267035847-2758ca315536?q=80&w=2036&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        price: '₱299.99',
+        oldPrice: '₱399.99',
+        description: 'Professional camera lens kit with multiple focal lengths.',
+        specs: [
+            'Wide-angle lens',
+            'Telephoto lens',
+            'Macro lens',
+            'UV filters included',
+            'Lens cleaning kit'
+        ],
+        rating: 4.5,
+        reviews: 85
     }
 };
 
