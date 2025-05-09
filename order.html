@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order History - TechGadgetHub</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header will be included here -->
+    
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar">
+            <div class="sidebar-header">
+                <img src="images/logo.png" alt="TechGadgetHub" class="sidebar-logo">
+                <h2>Dashboard</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a href="profile.html" class="sidebar-link">
+                            <i class="fas fa-user"></i>
+                            <span>Profile</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="orders.html" class="sidebar-link active">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span>Orders</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="settings.html" class="sidebar-link">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="wishlist.html" class="sidebar-link">
+                            <i class="fas fa-heart"></i>
+                            <span>Wishlist</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="addresses.html" class="sidebar-link">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Addresses</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="logout.html" class="sidebar-link logout">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <div class="dashboard-header">
+                <h1>Order History</h1>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search orders...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="filter-dropdown">
+                        <select>
+                            <option value="">All Orders</option>
+                            <option value="pending">Pending</option>
+                            <option value="completed">Completed</option>
+                            <option value="cancelled">Cancelled</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="order-history">
+                <!-- Order Card 1 -->
+                <div class="order-card">
+                    <div class="order-header">
+                        <div class="order-info">
+                            <span class="order-number">Order #12345</span>
+                            <span class="order-date">March 15, 2024</span>
+                        </div>
+                        <span class="order-status completed">Completed</span>
+                    </div>
+                    <div class="order-items">
+                        <div class="order-item">
+                            <img src="images/product1.jpg" alt="Product">
+                            <div class="order-item-details">
+                                <h3 class="order-item-name">Wireless Headphones</h3>
+                                <p class="order-item-meta">Quantity: 1 | Color: Black</p>
+                            </div>
+                            <div class="order-item-price">$99.99</div>
+                        </div>
+                    </div>
+                    <div class="order-summary">
+                        <div class="order-total">Total: $99.99</div>
+                        <div class="order-actions">
+                            <button class="btn btn-secondary">View Details</button>
+                            <button class="btn btn-primary">Track Order</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Card 2 -->
+                <div class="order-card">
+                    <div class="order-header">
+                        <div class="order-info">
+                            <span class="order-number">Order #12344</span>
+                            <span class="order-date">March 10, 2024</span>
+                        </div>
+                        <span class="order-status pending">Pending</span>
+                    </div>
+                    <div class="order-items">
+                        <div class="order-item">
+                            <img src="images/product2.jpg" alt="Product">
+                            <div class="order-item-details">
+                                <h3 class="order-item-name">Smart Watch</h3>
+                                <p class="order-item-meta">Quantity: 1 | Color: Silver</p>
+                            </div>
+                            <div class="order-item-price">$199.99</div>
+                        </div>
+                    </div>
+                    <div class="order-summary">
+                        <div class="order-total">Total: $199.99</div>
+                        <div class="order-actions">
+                            <button class="btn btn-secondary">View Details</button>
+                            <button class="btn btn-primary">Track Order</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <button class="pagination-btn"><i class="fas fa-chevron-left"></i></button>
+                <button class="pagination-btn active">1</button>
+                <button class="pagination-btn">2</button>
+                <button class="pagination-btn">3</button>
+                <button class="pagination-btn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer will be included here -->
+</body>
+</html> 

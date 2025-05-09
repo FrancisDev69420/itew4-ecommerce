@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - TechGadgetHub</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header will be included here -->
+    
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar">
+            <div class="sidebar-header">
+                <img src="images/logo.png" alt="TechGadgetHub" class="sidebar-logo">
+                <h2>Dashboard</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a href="profile.html" class="sidebar-link active">
+                            <i class="fas fa-user"></i>
+                            <span>Profile</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="orders.html" class="sidebar-link">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span>Orders</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="settings.html" class="sidebar-link">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="wishlist.html" class="sidebar-link">
+                            <i class="fas fa-heart"></i>
+                            <span>Wishlist</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="addresses.html" class="sidebar-link">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Addresses</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="logout.html" class="sidebar-link logout">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <div class="dashboard-header">
+                <h1>My Profile</h1>
+                <button class="btn btn-primary">Edit Profile</button>
+            </div>
+
+            <div class="profile-content">
+                <!-- Profile Overview -->
+                <div class="profile-overview">
+                    <div class="profile-avatar">
+                        <img src="images/avatar.jpg" alt="Profile Picture">
+                        <div class="edit-avatar">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                    </div>
+                    <div class="profile-info">
+                        <h2>John Doe</h2>
+                        <p class="profile-email">john.doe@example.com</p>
+                        <p class="profile-phone">+1 234 567 8900</p>
+                        <div class="profile-stats">
+                            <div class="stat-item">
+                                <span class="stat-value">12</span>
+                                <span class="stat-label">Orders</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">5</span>
+                                <span class="stat-label">Wishlist</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">3</span>
+                                <span class="stat-label">Addresses</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="profile-section">
+                    <h3>Recent Activity</h3>
+                    <div class="activity-timeline">
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-shopping-bag"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h4>Order Placed</h4>
+                                <p>You placed order #12345</p>
+                                <span class="activity-time">2 hours ago</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h4>Added to Wishlist</h4>
+                                <p>You added Wireless Headphones to your wishlist</p>
+                                <span class="activity-time">1 day ago</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h4>Product Review</h4>
+                                <p>You reviewed Smart Watch</p>
+                                <span class="activity-time">3 days ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Saved Addresses -->
+                <div class="profile-section">
+                    <h3>Saved Addresses</h3>
+                    <div class="addresses-grid">
+                        <div class="address-card">
+                            <div class="address-type">Home</div>
+                            <h4>John Doe</h4>
+                            <p>123 Main Street</p>
+                            <p>Apt 4B</p>
+                            <p>New York, NY 10001</p>
+                            <div class="address-actions">
+                                <button class="btn btn-secondary">Edit</button>
+                                <button class="btn btn-danger">Delete</button>
+                            </div>
+                        </div>
+                        <div class="address-card">
+                            <div class="address-type">Work</div>
+                            <h4>John Doe</h4>
+                            <p>456 Business Ave</p>
+                            <p>Suite 200</p>
+                            <p>New York, NY 10002</p>
+                            <div class="address-actions">
+                                <button class="btn btn-secondary">Edit</button>
+                                <button class="btn btn-danger">Delete</button>
+                            </div>
+                        </div>
+                        <button class="add-address-card">
+                            <i class="fas fa-plus"></i>
+                            <span>Add New Address</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer will be included here -->
+</body>
+</html> 

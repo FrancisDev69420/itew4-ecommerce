@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - TechGadgetHub</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-wrapper">
+                <div class="logo">
+                    <a href="../index.html">
+                        <h1>TechGadgetHub</h1>
+                    </a>
+                </div>
+                <div class="search-bar">
+                    <form action="../products.html">
+                        <input type="text" placeholder="Search..." name="query">
+                        <button type="submit"><i class="fas fa-search"></i></button>
+                    </form>
+                </div>
+                <div class="header-actions">
+                    <div class="account">
+                        <a href="#" class="dropdown-toggle"><i class="fas fa-user"></i> Account <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="profile.html"><i class="fas fa-user-circle"></i> My Profile</a>
+                            <a href="orders.html"><i class="fas fa-shopping-bag"></i> My Orders</a>
+                            <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                            <a href="#" id="header-logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        </div>
+                    </div>
+                    <div class="cart">
+                        <a href="../cart.html"><i class="fas fa-shopping-cart"></i> Cart (0)</a>
+                    </div>
+                </div>
+                <div class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav class="main-nav">
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li class="dropdown">
+                    <a>Categories <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="../categories/smartphones.html">Smartphones</a>
+                        <a href="../categories/laptops.html">Laptops & Computers</a>
+                        <a href="../categories/audio.html">Audio Devices</a>
+                        <a href="../categories/smart-home.html">Smart Home</a>
+                        <a href="../categories/wearables.html">Wearables</a>
+                        <a href="../categories/photography.html">Photography</a>
+                    </div>
+                </li>
+                <li><a href="../deals.html">Deals</a></li>
+                <li><a href="../new-arrivals.html">New Arrivals</a></li>
+                <li><a href="../blog.html">Tech Blog</a></li>
+                <li><a href="../about.html">About Us</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Profile Content -->
+    <main class="profile-container">
+        <div class="container">
+            <div class="profile-header">
+                <h1>My Profile</h1>
+                <p>Manage your account information and preferences</p>
+            </div>
+
+            <div class="profile-grid">
+                <!-- Profile Sidebar -->
+                <div class="profile-sidebar">
+                    <div class="profile-menu">
+                        <a href="profile.html" class="active"><i class="fas fa-user"></i> Profile</a>
+                        <a href="orders.html"><i class="fas fa-shopping-bag"></i> Orders</a>
+                        <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                        <a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </div>
+
+                <!-- Profile Content -->
+                <div class="profile-content">
+                    <div class="profile-section">
+                        <h2>Personal Information</h2>
+                        <div class="profile-info">
+                            <div class="profile-avatar">
+                                <img src="../team-members/ceo.jpg" alt="Profile Picture">
+                                <button class="change-avatar-btn"><i class="fas fa-camera"></i></button>
+                            </div>
+                            <form class="profile-form">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="firstName">First Name</label>
+                                        <input type="text" id="firstName" name="firstName" value="Jude">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="lastName">Last Name</label>
+                                        <input type="text" id="lastName" name="lastName" value="Del Rosario">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email Address</label>
+                                    <input type="email" id="email" name="email" value="jude@gmail.com">
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone Number</label>
+                                    <input type="tel" id="phone" name="phone" value="+1 234 567 8900">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Save Changes</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="profile-section">
+                        <h2>Address Book</h2>
+                        <div class="address-list">
+                            <div class="address-card">
+                                <div class="address-header">
+                                    <h3>Home Address</h3>
+                                    <div class="address-actions">
+                                        <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-icon"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </div>
+                                <p>Phase 4, Blk 6, Lot 2</p>
+                                <p>Lakeside Nest, Brgy. Banay-banay</p>
+                                <p>Cabuyao City, Laguna</p>
+                                <p>Philippines</p>
+                            </div>
+                            <button class="btn btn-outline"><i class="fas fa-plus"></i> Add New Address</button>
+                        </div>
+                    </div>
+
+                    <div class="profile-section">
+                        <h2>Payment Methods</h2>
+                        <div class="payment-list">
+                            <div class="payment-card">
+                                <div class="payment-header">
+                                    <i class="fab fa-cc-visa"></i>
+                                    <div class="payment-actions">
+                                        <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-icon"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </div>
+                                <p>**** **** **** 1234</p>
+                                <p>Expires: 12/25</p>
+                            </div>
+                            <button class="btn btn-outline"><i class="fas fa-plus"></i> Add New Payment Method</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <h2>TechGadgetHub</h2>
+                    </div>
+                    <p>Your ultimate destination for the latest tech gadgets. Quality products, competitive prices, and exceptional service.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="../about.html">About Us</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                        <li><a href="../blog.html">Blog</a></li>
+                        <li><a href="../faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Customer Service</h3>
+                    <ul class="footer-links">
+                        <li><a href="../shipping.html">Shipping Information</a></li>
+                        <li><a href="../returns.html">Returns & Exchanges</a></li>
+                        <li><a href="../privacy.html">Privacy Policy</a></li>
+                        <li><a href="../terms.html">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Tech Street, Digital City, TC 12345</li>
+                        <li><i class="fas fa-phone"></i> +1 234 567 8900</li>
+                        <li><i class="fas fa-envelope"></i> support@techgadgethub.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2024 TechGadgetHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../main.js"></script>
+</body>
+</html>
